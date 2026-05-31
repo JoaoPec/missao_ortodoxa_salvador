@@ -1,26 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;900&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --gold: #C9A84C;
+  --gold-light: #E8CC7A;
+  --gold-dim: #8A6F32;
+  --navy: #0D1B2A;
+  --navy-mid: #132233;
+  --navy-light: #1C3149;
+  --cream: #F5EFE0;
+  --cream-dark: #E8DFC8;
+  --text-muted: #8A9AB0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--navy);
+  color: var(--cream);
+  font-family: 'Crimson Pro', Georgia, 'Times New Roman', serif;
+  font-size: 19px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
 }
+
+/* Grain texture overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* Animations */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 24px rgba(201,168,76,0.25), 0 0 0 1px rgba(201,168,76,0.3); }
+  50%       { box-shadow: 0 0 48px rgba(201,168,76,0.5), 0 0 0 1px rgba(201,168,76,0.6); }
+}
+
+@keyframes slow-zoom {
+  from { transform: scale(1); }
+  to   { transform: scale(1.06); }
+}
+
+.animate-fade-up     { opacity: 0; animation: fade-up  0.8s ease forwards; }
+.animate-fade-in     { opacity: 0; animation: fade-in  1.2s ease forwards; }
+.animate-slow-zoom   { animation: slow-zoom 18s ease-in-out infinite alternate; }
+.animate-glow-pulse  { animation: glow-pulse 3s ease-in-out infinite; }
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-700 { animation-delay: 700ms; }
+
+/* Scroll reveal */
+.reveal          { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible  { opacity: 1; transform: translateY(0); }
+
+/* Typography */
+.font-display { font-family: 'Cinzel', Georgia, serif; letter-spacing: 0.04em; }
+
+/* Gold divider */
+.divider-gold {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201,168,76,0.7), transparent);
+}
+
+/* Ornamental cross text */
+.ornament::before { content: '✦'; color: var(--gold); margin-right: 0.6em; opacity: 0.8; }
+.ornament::after  { content: '✦'; color: var(--gold); margin-left:  0.6em; opacity: 0.8; }
