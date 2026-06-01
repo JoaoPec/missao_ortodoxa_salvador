@@ -5,6 +5,7 @@
       "name": "ortodoxa-salvador",
       "runtimeExecutable": "npm",
       "runtimeArgs": ["run", "dev"],
+      "cwd": "C:\\Users\\joao.santos\\Desktop\\repositorios\\missao_ortodoxa_salvador",
       "port": 3000
     }
   ]
