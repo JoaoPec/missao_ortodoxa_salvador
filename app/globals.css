@@ -2,9 +2,12 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #071321;
-  --ink-2: #0d2034;
-  --blue: #123451;
+  --ink: #160721;
+  --ink-2: #241039;
+  --blue: #2d1b55;
+  --purple: #4b1d6b;
+  --purple-2: #6d2a88;
+  --purple-soft: #efe6f4;
   --plaster: #f1eadb;
   --paper: #fbf6ec;
   --paper-2: #e5d8bf;
@@ -17,6 +20,7 @@
   --line: rgba(10, 22, 35, 0.14);
   --white-line: rgba(255, 255, 255, 0.16);
   --shadow: 0 24px 80px rgba(4, 10, 18, 0.24);
+  --purple-shadow: 0 24px 90px rgba(50, 16, 79, 0.34);
 }
 
 * {
@@ -72,7 +76,8 @@ a {
   gap: 28px;
   padding: 24px clamp(20px, 4vw, 64px);
   color: var(--paper);
-  background: linear-gradient(to bottom, rgba(7, 19, 33, 0.82), rgba(7, 19, 33, 0));
+  background:
+    linear-gradient(to bottom, rgba(22, 7, 33, 0.92), rgba(22, 7, 33, 0.18) 68%, rgba(22, 7, 33, 0));
 }
 
 .brand {
@@ -177,20 +182,40 @@ a {
   position: relative;
   min-height: 100svh;
   overflow: hidden;
-  background: var(--ink);
+  background:
+    radial-gradient(circle at 70% 28%, rgba(109, 42, 136, 0.28), transparent 32%),
+    var(--ink);
+}
+
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(228, 189, 100, 0.08) 0 1px, transparent 1px 28px),
+    linear-gradient(45deg, rgba(228, 189, 100, 0.055) 0 1px, transparent 1px 28px),
+    radial-gradient(circle at 73% 36%, rgba(109, 42, 136, 0.28), transparent 28%);
+  mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.26) 44%, rgba(0, 0, 0, 0.58) 100%);
 }
 
 .hero-image {
   object-fit: cover;
   object-position: center;
+  z-index: 0;
+  opacity: 0.82;
+  filter: saturate(0.84) contrast(1.08) sepia(0.16);
 }
 
 .hero-shade {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background:
-    linear-gradient(90deg, rgba(7, 19, 33, 0.98) 0%, rgba(7, 19, 33, 0.78) 35%, rgba(7, 19, 33, 0.22) 70%, rgba(7, 19, 33, 0.54) 100%),
-    linear-gradient(180deg, rgba(7, 19, 33, 0.12), var(--ink) 100%);
+    radial-gradient(circle at 30% 40%, rgba(109, 42, 136, 0.2), transparent 34%),
+    linear-gradient(90deg, rgba(22, 7, 33, 0.96) 0%, rgba(22, 7, 33, 0.68) 35%, rgba(22, 7, 33, 0.12) 68%, rgba(22, 7, 33, 0.34) 100%),
+    linear-gradient(180deg, rgba(22, 7, 33, 0.12), var(--ink) 100%);
 }
 
 .hero-content {
@@ -218,8 +243,15 @@ a {
 }
 
 .hero-patriarch {
+  display: inline-flex;
+  width: fit-content;
+  max-width: 100%;
   margin: 0 0 18px;
+  padding: 10px 13px;
   color: var(--gold-2);
+  border-left: 3px solid var(--gold-2);
+  background: linear-gradient(90deg, rgba(109, 42, 136, 0.68), rgba(75, 29, 107, 0.24));
+  box-shadow: 0 14px 38px rgba(22, 7, 33, 0.22);
   font-family: "Inter", Arial, sans-serif;
   font-size: 0.72rem;
   font-weight: 900;
@@ -299,8 +331,8 @@ a {
 
 .button-primary {
   color: var(--ink);
-  background: linear-gradient(135deg, var(--gold), var(--gold-2));
-  box-shadow: 0 18px 40px rgba(196, 139, 42, 0.22);
+  background: linear-gradient(135deg, #b77920, var(--gold-2));
+  box-shadow: 0 18px 40px rgba(196, 139, 42, 0.22), 0 0 0 1px rgba(228, 189, 100, 0.15) inset;
 }
 
 .button-ghost {
@@ -331,7 +363,7 @@ a {
   padding: 22px;
   color: var(--paper);
   border-top: 1px solid rgba(228, 189, 100, 0.45);
-  background: rgba(7, 19, 33, 0.42);
+  background: rgba(36, 16, 57, 0.5);
   backdrop-filter: blur(12px);
 }
 
@@ -397,8 +429,8 @@ a {
   align-items: start;
   padding: clamp(84px, 12vw, 150px) clamp(22px, 6vw, 96px);
   background:
-    linear-gradient(90deg, rgba(251, 246, 236, 0.92), rgba(251, 246, 236, 0.82)),
-    radial-gradient(circle at 95% 10%, rgba(70, 111, 130, 0.16), transparent 36%),
+    linear-gradient(90deg, rgba(251, 246, 236, 0.94), rgba(251, 246, 236, 0.84)),
+    radial-gradient(circle at 95% 10%, rgba(109, 42, 136, 0.18), transparent 36%),
     var(--paper);
 }
 
@@ -466,9 +498,10 @@ a {
   padding: clamp(28px, 4vw, 54px);
   color: var(--paper);
   background:
-    linear-gradient(135deg, rgba(7, 19, 33, 0.92), rgba(18, 52, 81, 0.84)),
+    radial-gradient(circle at 15% 15%, rgba(228, 189, 100, 0.17), transparent 34%),
+    linear-gradient(135deg, rgba(22, 7, 33, 0.96), rgba(75, 29, 107, 0.9)),
     var(--ink);
-  box-shadow: var(--shadow);
+  box-shadow: var(--purple-shadow);
 }
 
 .mission-side-note span {
@@ -488,8 +521,8 @@ a {
 .distinction-section {
   padding: clamp(78px, 10vw, 126px) clamp(22px, 6vw, 96px);
   background:
-    radial-gradient(circle at 15% 18%, rgba(157, 76, 47, 0.16), transparent 32%),
-    linear-gradient(180deg, var(--paper), #efe4cf);
+    radial-gradient(circle at 15% 18%, rgba(109, 42, 136, 0.16), transparent 32%),
+    linear-gradient(180deg, var(--paper), var(--purple-soft));
 }
 
 .distinction-section .section-heading {
@@ -508,7 +541,7 @@ a {
 .belief-grid article {
   min-height: 210px;
   padding: clamp(24px, 3vw, 36px);
-  background: rgba(251, 246, 236, 0.78);
+  background: rgba(251, 246, 236, 0.84);
 }
 
 .belief-grid article span {
@@ -519,6 +552,7 @@ a {
   margin-bottom: 28px;
   color: var(--gold);
   border: 1px solid rgba(196, 139, 42, 0.42);
+  background: linear-gradient(135deg, rgba(109, 42, 136, 0.08), rgba(228, 189, 100, 0.06));
   font-family: "Cinzel", Georgia, serif;
   font-size: 1.4rem;
   line-height: 1;
@@ -547,7 +581,8 @@ a {
   align-items: center;
   padding: clamp(76px, 10vw, 130px) clamp(22px, 6vw, 96px);
   background:
-    linear-gradient(90deg, rgba(7, 19, 33, 0.82), rgba(7, 19, 33, 0.44)),
+    radial-gradient(circle at 74% 28%, rgba(109, 42, 136, 0.32), transparent 36%),
+    linear-gradient(90deg, rgba(22, 7, 33, 0.9), rgba(22, 7, 33, 0.58)),
     var(--ink);
   color: var(--paper);
   scroll-margin-top: 88px;
@@ -661,7 +696,8 @@ a {
 .sacrament-list {
   padding: clamp(70px, 9vw, 116px) clamp(22px, 6vw, 96px);
   background:
-    radial-gradient(circle at 15% 25%, rgba(196, 139, 42, 0.18), transparent 34%),
+    radial-gradient(circle at 15% 25%, rgba(228, 189, 100, 0.2), transparent 34%),
+    radial-gradient(circle at 85% 0%, rgba(109, 42, 136, 0.26), transparent 40%),
     linear-gradient(135deg, var(--ink), var(--ink-2));
   color: var(--paper);
 }
@@ -710,7 +746,7 @@ a {
   padding: clamp(80px, 11vw, 142px) clamp(22px, 6vw, 96px);
   background:
     linear-gradient(90deg, rgba(251, 246, 236, 0.96), rgba(251, 246, 236, 0.86)),
-    radial-gradient(circle at 80% 35%, rgba(116, 122, 62, 0.18), transparent 34%),
+    radial-gradient(circle at 80% 35%, rgba(109, 42, 136, 0.18), transparent 34%),
     var(--paper);
 }
 
@@ -782,8 +818,10 @@ a {
 .visit-card {
   padding: clamp(26px, 4vw, 42px);
   color: var(--paper);
-  background: var(--ink);
-  box-shadow: var(--shadow);
+  background:
+    radial-gradient(circle at 100% 0%, rgba(228, 189, 100, 0.14), transparent 32%),
+    linear-gradient(135deg, var(--ink), var(--purple));
+  box-shadow: var(--purple-shadow);
 }
 
 .visit-card h3 {
