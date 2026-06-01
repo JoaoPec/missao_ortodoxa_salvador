@@ -16,22 +16,49 @@ const navItems = [
   ["Visite-nos", "#contato"],
 ];
 
-const beliefs = [
+const distinctions = [
   {
-    title: "Fé apostólica",
-    text: "A mesma fé recebida dos Apóstolos, confessada nos concílios e vivida na liturgia.",
+    mark: "☩",
+    title: "Continuidade Apostólica",
+    text: "Mantemos sem interrupção a cadeia de bispos desde os apóstolos, guardando a autenticidade da fé transmitida por Cristo.",
   },
   {
-    title: "Vida sacramental",
-    text: "Batismo, Crismação, Eucaristia, Confissão, Matrimônio, Unção e acompanhamento pastoral.",
+    mark: "✝",
+    title: "Divina Liturgia",
+    text: "A Liturgia de São João Crisóstomo é celebrada há mais de 1.600 anos: beleza, profundidade e presença real de Cristo.",
   },
   {
-    title: "Comunidade em Salvador",
-    text: "Uma missão aberta a ortodoxos, catecúmenos e pessoas que desejam conhecer a Igreja.",
+    mark: "⁜",
+    title: "Theosis",
+    text: "A ortodoxia não é só doutrina: é transformação. A theosis é a participação real na vida divina, o fim último do ser humano.",
+  },
+  {
+    mark: "✦",
+    title: "Unidade na diversidade",
+    text: "Grega, árabe, romena, brasileira: uma única fé em dezenas de culturas, unidas pela mesma doutrina e pelo mesmo cálice.",
   },
 ];
 
-const sacraments = ["Batismo", "Crisma", "Eucaristia", "Confissão", "Matrimônio", "Santa Unção"];
+const sacraments = ["Batismo & Crismação", "Divina Eucaristia", "Matrimônio", "Santa Unção", "Confissão", "Ordenação Sacerdotal"];
+
+const welcomePaths = [
+  {
+    title: "Estou curioso sobre a Ortodoxia",
+    text: "Venha visitar uma liturgia. Sem compromisso, sem pressão: apenas venha.",
+  },
+  {
+    title: "Fui batizado ortodoxo, mas me afastei",
+    text: "A Igreja sempre te recebe de volta. Fale conosco: estamos aqui.",
+  },
+  {
+    title: "Quero me converter à Ortodoxia",
+    text: "Oferecemos catequese personalizada para adultos que desejam receber os sacramentos.",
+  },
+  {
+    title: "Sou ortodoxo e me mudei para Salvador",
+    text: "Bem-vindo à sua nova comunidade. Entre em contato para participar das liturgias.",
+  },
+];
 
 function useReveal() {
   useEffect(() => {
@@ -163,23 +190,24 @@ export default function Home() {
         <div className="hero-shade" />
         <div className="hero-content">
           <div className="hero-copy" data-reveal>
+            <p className="hero-patriarch">Patriarcado Ecumênico de Constantinopla</p>
             <h1>
-            A fé dos Apóstolos.
-              <br />
-              A tradição da Igreja.
-              <br />
-              A vida em Cristo.
+              Missão Ortodoxa Grega em Salvador.
             </h1>
             <p>
-              A Missão Ortodoxa Grega em Salvador acolhe quem busca a beleza da fé
-              ortodoxa, a vida sacramental e a comunhão com a Igreja de Cristo.
+              A fé dos apóstolos, preservada há dois mil anos.
+              <br />
+              Agora em Salvador, Bahia.
             </p>
             <div className="hero-actions">
-              <a className="button button-primary" href="#livro">
-                Conhecer o livro <ArrowIcon />
+              <a className="button button-primary" href={CONTACT_URL} target="_blank" rel="noreferrer">
+                Entrar em contato <ArrowIcon />
               </a>
-              <a className="button button-ghost" href={CONTACT_URL} target="_blank" rel="noreferrer">
-                Visitar a missão
+              <a className="button button-ghost" href="#missao">
+                Conhecer a missão
+              </a>
+              <a className="button button-primary" href="#livro">
+                Ver livro
               </a>
             </div>
             <div className="hero-social-note">
@@ -198,15 +226,42 @@ export default function Home() {
       <section id="missao" className="mission-section">
         <div className="mission-copy">
           <SectionHeading
-            overline="Sobre a missão"
-            title="Uma Igreja viva, em comunhão com todo o Corpo de Cristo."
-            text="Sob a tradição do Patriarcado Ecumênico de Constantinopla, a missão existe para reunir, formar e acolher fiéis ortodoxos e interessados na Bahia."
+            overline="Quem somos"
+            title="A Igreja que Jesus Cristo fundou"
           />
+          <div className="mission-body" data-reveal>
+            <p>
+              A Igreja Ortodoxa é a Igreja fundada por Jesus Cristo e seus Apóstolos.
+              Preservamos ininterruptamente a fé, o culto e a vida sacramental ao longo
+              de mais de dois mil anos de história: sem adições, sem subtrações.
+            </p>
+            <p>
+              A Missão Ortodoxa Grega em Salvador está sob a jurisdição do Patriarcado
+              Ecumênico de Constantinopla, a mais antiga sede cristã em continuidade no
+              mundo, e acolhe a todos que buscam a fé ortodoxa na Bahia.
+            </p>
+            <p>
+              Seja você curioso, catecúmeno ou já batizado na ortodoxia: você é
+              bem-vindo entre nós.
+            </p>
+          </div>
         </div>
+        <div className="mission-side-note" data-reveal>
+          <span>✦</span>
+          <p>A tradição da Igreja não é peça de museu: é vida recebida, celebrada e transmitida.</p>
+        </div>
+      </section>
+
+      <section className="distinction-section">
+        <SectionHeading
+          overline="A Fé Ortodoxa"
+          title="O que nos distingue"
+          text="A mesma fé dos Apóstolos, expressa nos Símbolos ecumênicos e vivida no mesmo cálice."
+        />
         <div className="belief-grid" data-reveal>
-          {beliefs.map((item) => (
+          {distinctions.map((item) => (
             <article key={item.title}>
-              <span />
+              <span>{item.mark}</span>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
             </article>
@@ -231,8 +286,13 @@ export default function Home() {
           <p className="book-author">São Pedro Moguila</p>
           <p>
             Redigida em 1640 e aprovada pelos Patriarcas de Constantinopla, Alexandria
-            e Jerusalém, esta obra apresenta a fé ortodoxa em perguntas e respostas,
-            com clareza catequética e profunda fidelidade à Tradição.
+            e Jerusalém, a Confissão Ortodoxa de São Pedro Moguila é um dos grandes
+            documentos doutrinários da Igreja Ortodoxa: uma exposição clara e completa
+            da fé apostólica em forma de perguntas e respostas.
+          </p>
+          <p>
+            Uma obra essencial para quem deseja compreender o que a Igreja Ortodoxa
+            acredita, ensina e confessa.
           </p>
           <div className="translation-note">
             <span>Tradução da missão</span>
@@ -261,14 +321,14 @@ export default function Home() {
       <section id="liturgia" className="liturgy-section">
         <div className="liturgy-panel" data-reveal>
           <SectionHeading
-            overline="Vida liturgica"
-            title="A beleza da Igreja não é enfeite. É caminho."
-            text="Na Divina Liturgia, a fé se torna canto, gesto, incenso, comunhão e vida concreta. É ali que aprendemos a ser Igreja."
+            overline="Sacramentos"
+            title="Os Sagrados Mistérios acompanham cada etapa da vida."
+            text="A Liturgia de São João Crisóstomo, a Eucaristia, a Confissão, o Batismo e os demais sacramentos não são apenas ritos: são a vida de Cristo comunicada à Igreja."
             light
           />
           <div className="liturgy-actions">
             <a className="button button-primary" href={CONTACT_URL} target="_blank" rel="noreferrer">
-              Perguntar horarios <ArrowIcon />
+              Perguntar horários <ArrowIcon />
             </a>
             <a className="social-link" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
               Instagram
@@ -291,18 +351,27 @@ export default function Home() {
       <section id="contato" className="visit-section">
         <div className="visit-copy" data-reveal>
           <OrthodoxCross />
-          <h2>Venha conhecer a Missão Ortodoxa em Salvador.</h2>
+          <p className="visit-kicker">Você é bem-vindo</p>
+          <h2>Para quem é a Missão Ortodoxa?</h2>
           <p>
-            Você pode chegar como visitante, curioso, catecúmeno ou fiel ortodoxo. A
-            comunidade entra em contato para orientar sobre próximas liturgias,
-            encontros e catequese.
+            Você pode chegar como visitante, curioso, catecúmeno ou fiel ortodoxo.
+            Preencha o formulário e um membro da comunidade entrará em contato para
+            tirar dúvidas, enviar informações ou agendar uma visita.
           </p>
+          <div className="welcome-list">
+            {welcomePaths.map((item) => (
+              <article key={item.title}>
+                <h3>{item.title}</h3>
+                <p>{item.text}</p>
+              </article>
+            ))}
+          </div>
         </div>
         <div className="visit-card" data-reveal>
-          <p>Salvador, Bahia</p>
-          <h3>Primeiro contato</h3>
+          <p>Primeiro passo</p>
+          <h3>Dê o primeiro passo</h3>
           <a className="button button-primary" href={CONTACT_URL} target="_blank" rel="noreferrer">
-            Enviar mensagem <ArrowIcon />
+            Preencher formulário <ArrowIcon />
           </a>
           <div className="contact-links">
             <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
