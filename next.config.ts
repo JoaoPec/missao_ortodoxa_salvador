@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  devIndicators: false,
   // Permite que o Google Fonts carregue via CSS @import
   // (já tratado no globals.css)
   async headers() {

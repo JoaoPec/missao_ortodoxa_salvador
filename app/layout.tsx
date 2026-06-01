@@ -29,8 +29,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Missão Ortodoxa Grega em Salvador",
-    description:
-      "Igreja Ortodoxa em Salvador, BA — Patriarcado Ecumênico de Constantinopla.",
+    description: "Igreja Ortodoxa em Salvador, BA - Patriarcado Ecumênico de Constantinopla.",
   },
   robots: {
     index: true,
@@ -44,15 +43,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="pt-BR" className="h-full">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Structured data for local church */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -71,7 +69,7 @@ export default function RootLayout({
               },
               sameAs: [
                 "https://www.instagram.com/ortodoxa.salvador/",
-                "https://www.facebook.com/p/Missão-da-Igreja-Ortodoxa-Grega-em-Salvador-BA-100072484785945/",
+                "https://www.facebook.com/ortodoxa.salvador/",
               ],
             }),
           }}
