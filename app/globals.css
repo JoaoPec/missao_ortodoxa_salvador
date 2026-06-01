@@ -247,11 +247,9 @@ a {
   width: fit-content;
   max-width: 100%;
   margin: 0 0 18px;
-  padding: 10px 13px;
+  padding: 0 0 0 14px;
   color: var(--gold-2);
   border-left: 3px solid var(--gold-2);
-  background: linear-gradient(90deg, rgba(109, 42, 136, 0.68), rgba(75, 29, 107, 0.24));
-  box-shadow: 0 14px 38px rgba(22, 7, 33, 0.22);
   font-family: "Inter", Arial, sans-serif;
   font-size: 0.72rem;
   font-weight: 900;
