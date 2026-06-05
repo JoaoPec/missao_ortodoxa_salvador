@@ -1,0 +1,7 @@
+---
+description: Diretrizes Karpathy para agentes de IA — leia AGENTS.md antes de codar
+alwaysApply: true
+---
+
+Leia e siga **`.github/AGENTS.md`** neste repositório antes de planear ou editar código.
+Inclui diretrizes Karpathy (think before coding, simplicity, surgical changes, goal-driven execution).
