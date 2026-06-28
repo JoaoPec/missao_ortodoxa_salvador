@@ -227,7 +227,7 @@ export default function Home() {
           rel="noreferrer"
           onClick={() => setMenuOpen(false)}
         >
-          Falar no direct <ArrowIcon />
+          Fale com a gente <ArrowIcon />
         </a>
         <SocialLinks className="mobile-menu-socials" />
       </nav>
@@ -255,7 +255,7 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href={CONTACT_URL} target="_blank" rel="noreferrer">
-                Falar no direct <ArrowIcon />
+                Fale com a gente <ArrowIcon />
               </a>
             </div>
             <div className="hero-social-note">
@@ -316,6 +316,7 @@ export default function Home() {
           overline="A Fé Ortodoxa"
           title="O que nos distingue"
           text="A mesma fé dos Apóstolos, expressa nos Símbolos ecumênicos e vivida no mesmo cálice."
+          light
         />
         <div className="belief-grid" data-reveal>
           {distinctions.map((item) => (
@@ -333,7 +334,6 @@ export default function Home() {
           overline="Um momento histórico"
           title="O mundo está redescobrindo a Ortodoxia"
           text="O crescimento em Salvador acompanha um movimento mundial de reaproximação com a fé cristã das origens. Cada vez mais jovens chegam à missão pelo estudo pessoal e por conteúdos sobre a Ortodoxia na internet."
-          light
         />
         <div className="stat-grid" data-reveal>
           {momentumStats.map((stat) => (
@@ -460,7 +460,7 @@ export default function Home() {
           <p>Primeiro passo</p>
           <h3>Dê o primeiro passo</h3>
           <a className="button button-primary" href={CONTACT_URL} target="_blank" rel="noreferrer">
-            Chamar no direct <ArrowIcon />
+            Fale com a gente <ArrowIcon />
           </a>
           <div className="contact-links">
             <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
@@ -483,7 +483,7 @@ export default function Home() {
         </div>
         <div className="footer-contact">
           <a className="footer-direct" href={CONTACT_URL} target="_blank" rel="noreferrer">
-            Falar no direct <ArrowIcon />
+            Fale com a gente <ArrowIcon />
           </a>
           <SocialLinks className="footer-socials" />
         </div>
