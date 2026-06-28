@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
-const CONTACT_URL = "https://docs.google.com/forms/d/e/SEU_FORM_ID/viewform";
+const CONTACT_URL = "https://ig.me/m/ortodoxa.salvador";
 const BOOK_URL = "https://pay.hotmart.com/L103598945N?bid=1780150292559";
 const INSTAGRAM_URL = "https://www.instagram.com/ortodoxa.salvador/";
 const FACEBOOK_URL = "https://www.facebook.com/ortodoxa.salvador/";
@@ -11,35 +11,51 @@ const READ_URL = "https://confissao-ortodoxa.notion.site/in";
 
 const navItems = [
   ["Missão", "#missao"],
+  ["Movimento", "#movimento"],
   ["Livro", "#livro"],
   ["Liturgia", "#liturgia"],
   ["Visite-nos", "#contato"],
 ];
 
+const momentumStats = [
+  {
+    value: "16–18 mil",
+    label: "adultos recebidos em paróquias ortodoxas dos EUA apenas no ciclo pascal de 2026.",
+  },
+  {
+    value: "20–30 mil",
+    label: "conversões projetadas para 2026, ante 4 a 5 mil por ano ao longo da década de 2010.",
+  },
+  {
+    value: "2023",
+    label: "início da atuação regular da missão em Salvador, com crescimento expressivo desde outubro de 2025.",
+  },
+  {
+    value: "10–15",
+    label: "fiéis a cada Divina Liturgia, chegando ao maior número nas grandes festas do calendário litúrgico.",
+  },
+];
+
 const distinctions = [
   {
-    mark: "☩",
     title: "Continuidade Apostólica",
     text: "Mantemos sem interrupção a cadeia de bispos desde os apóstolos, guardando a autenticidade da fé transmitida por Cristo.",
   },
   {
-    mark: "✝",
     title: "Divina Liturgia",
     text: "A Liturgia de São João Crisóstomo é celebrada há mais de 1.600 anos: beleza, profundidade e presença real de Cristo.",
   },
   {
-    mark: "⁜",
     title: "Theosis",
     text: "A ortodoxia não é só doutrina: é transformação. A theosis é a participação real na vida divina, o fim último do ser humano.",
   },
   {
-    mark: "✦",
     title: "Unidade na diversidade",
     text: "Grega, árabe, romena, brasileira: uma única fé em dezenas de culturas, unidas pela mesma doutrina e pelo mesmo cálice.",
   },
 ];
 
-const sacraments = ["Batismo & Crismação", "Divina Eucaristia", "Matrimônio", "Santa Unção", "Confissão", "Ordenação Sacerdotal"];
+const sacraments = ["Batismo", "Crismação", "Divina Eucaristia", "Matrimônio", "Santa Unção", "Confissão", "Ordenação Sacerdotal"];
 
 const welcomePaths = [
   {
@@ -119,6 +135,16 @@ function FacebookIcon() {
   );
 }
 
+function MenuIcon({ open }: { open: boolean }) {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true" className={open ? "menu-icon is-open" : "menu-icon"}>
+      <line x1="4" y1="7" x2="20" y2="7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <line x1="4" y1="12" x2="20" y2="12" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <line x1="4" y1="17" x2="20" y2="17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 function SocialLinks({ className = "" }: { className?: string }) {
   return (
     <div className={className} aria-label="Redes sociais">
@@ -154,6 +180,7 @@ function SectionHeading({
 
 export default function Home() {
   useReveal();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <main>
@@ -176,7 +203,34 @@ export default function Home() {
         <a className="header-action" href={CONTACT_URL} target="_blank" rel="noreferrer">
           Contato
         </a>
+        <button
+          type="button"
+          className="menu-toggle"
+          aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((value) => !value)}
+        >
+          <MenuIcon open={menuOpen} />
+        </button>
       </header>
+
+      <nav className={menuOpen ? "mobile-menu is-open" : "mobile-menu"} aria-label="Menu de navegacao">
+        {navItems.map(([label, href]) => (
+          <a key={href} href={href} onClick={() => setMenuOpen(false)}>
+            {label}
+          </a>
+        ))}
+        <a
+          className="mobile-menu-action"
+          href={CONTACT_URL}
+          target="_blank"
+          rel="noreferrer"
+          onClick={() => setMenuOpen(false)}
+        >
+          Falar no direct <ArrowIcon />
+        </a>
+        <SocialLinks className="mobile-menu-socials" />
+      </nav>
 
       <section id="top" className="hero-section">
         <Image
@@ -201,13 +255,7 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <a className="button button-primary" href={CONTACT_URL} target="_blank" rel="noreferrer">
-                Entrar em contato <ArrowIcon />
-              </a>
-              <a className="button button-ghost" href="#missao">
-                Conhecer a missão
-              </a>
-              <a className="button button-primary" href="#livro">
-                Ver livro
+                Falar no direct <ArrowIcon />
               </a>
             </div>
             <div className="hero-social-note">
@@ -221,6 +269,10 @@ export default function Home() {
             <ArrowIcon />
           </a>
         </div>
+        <a className="hero-scroll" href="#missao" aria-label="Rolar para conhecer a missão">
+          <span>Role para descobrir</span>
+          <i aria-hidden="true" />
+        </a>
       </section>
 
       <section id="missao" className="mission-section">
@@ -238,7 +290,14 @@ export default function Home() {
             <p>
               A Missão Ortodoxa Grega em Salvador está sob a jurisdição do Patriarcado
               Ecumênico de Constantinopla, a mais antiga sede cristã em continuidade no
-              mundo, e acolhe a todos que buscam a fé ortodoxa na Bahia.
+              mundo. Presente na capital baiana há alguns anos, passou a ter atuação
+              regular a partir de 2023 e, desde outubro de 2025, vive um crescimento
+              expressivo na participação dos fiéis.
+            </p>
+            <p>
+              A iniciativa é liderada pelo Pe. Paísios, Hieromonge (monge-padre), sob o
+              omofório do Bispo Auxiliar Melécio e do Arcebispo Dom Iosf, Exarca da
+              América do Sul — todos sob a autoridade espiritual do Patriarca Bartolomeu I.
             </p>
             <p>
               Seja você curioso, catecúmeno ou já batizado na ortodoxia: você é
@@ -261,12 +320,42 @@ export default function Home() {
         <div className="belief-grid" data-reveal>
           {distinctions.map((item) => (
             <article key={item.title}>
-              <span>{item.mark}</span>
+              <span aria-hidden="true" />
               <h3>{item.title}</h3>
               <p>{item.text}</p>
             </article>
           ))}
         </div>
+      </section>
+
+      <section id="movimento" className="momentum-section">
+        <SectionHeading
+          overline="Um momento histórico"
+          title="O mundo está redescobrindo a Ortodoxia"
+          text="O crescimento em Salvador acompanha um movimento mundial de reaproximação com a fé cristã das origens. Cada vez mais jovens chegam à missão pelo estudo pessoal e por conteúdos sobre a Ortodoxia na internet."
+          light
+        />
+        <div className="stat-grid" data-reveal>
+          {momentumStats.map((stat) => (
+            <article key={stat.value}>
+              <strong>{stat.value}</strong>
+              <p>{stat.label}</p>
+            </article>
+          ))}
+        </div>
+        <figure className="momentum-quote" data-reveal>
+          <blockquote>
+            O Cristianismo Ortodoxo se define por sua fidelidade às tradições
+            litúrgicas e dogmáticas apostólicas da Igreja. Não por acréscimo, nem por
+            detrimento delas. A Fé verdadeira se professa em todas as partes, por todos
+            os tempos e por todos os fiéis.
+          </blockquote>
+          <figcaption>Pe. Paísios, Hieromonge — líder da missão em Salvador</figcaption>
+        </figure>
+        <p className="momentum-source" data-reveal>
+          Estimativas do Orthodox Studies Institute (EUA) para o ciclo pascal de 2026,
+          analisadas por Matthew Namee e pelo diácono Seraphim Rohlin.
+        </p>
       </section>
 
       <section id="livro" className="book-section">
@@ -355,8 +444,8 @@ export default function Home() {
           <h2>Para quem é a Missão Ortodoxa?</h2>
           <p>
             Você pode chegar como visitante, curioso, catecúmeno ou fiel ortodoxo.
-            Preencha o formulário e um membro da comunidade entrará em contato para
-            tirar dúvidas, enviar informações ou agendar uma visita.
+            Mande uma mensagem no direct do nosso Instagram e um membro da comunidade
+            responderá para tirar dúvidas, enviar informações ou agendar uma visita.
           </p>
           <div className="welcome-list">
             {welcomePaths.map((item) => (
@@ -371,7 +460,7 @@ export default function Home() {
           <p>Primeiro passo</p>
           <h3>Dê o primeiro passo</h3>
           <a className="button button-primary" href={CONTACT_URL} target="_blank" rel="noreferrer">
-            Preencher formulário <ArrowIcon />
+            Chamar no direct <ArrowIcon />
           </a>
           <div className="contact-links">
             <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
@@ -385,11 +474,19 @@ export default function Home() {
       </section>
 
       <footer className="footer">
-        <div>
+        <div className="footer-brand">
           <OrthodoxCross />
-          <p>Missão Ortodoxa Grega em Salvador</p>
+          <div>
+            <p>Missão Ortodoxa Grega em Salvador</p>
+            <span>Patriarcado Ecumênico de Constantinopla</span>
+          </div>
         </div>
-        <span>Patriarcado Ecumênico de Constantinopla</span>
+        <div className="footer-contact">
+          <a className="footer-direct" href={CONTACT_URL} target="_blank" rel="noreferrer">
+            Falar no direct <ArrowIcon />
+          </a>
+          <SocialLinks className="footer-socials" />
+        </div>
       </footer>
     </main>
   );
