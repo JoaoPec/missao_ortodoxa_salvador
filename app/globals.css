@@ -592,6 +592,10 @@ a {
 }
 
 .mission-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+  gap: clamp(40px, 6vw, 84px);
+  align-items: start;
   position: relative;
   padding: clamp(84px, 12vw, 150px) clamp(22px, 6vw, 96px);
   scroll-margin-top: 88px;
@@ -601,6 +605,77 @@ a {
 .mission-copy {
   position: relative;
   z-index: 1;
+}
+
+.mission-aside {
+  align-self: start;
+  padding: clamp(26px, 3vw, 36px);
+  border: 1px solid var(--line);
+  border-top: 3px solid var(--gold);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.mission-aside-kicker {
+  margin: 0 0 14px;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.mission-aside h3 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.mission-aside > p {
+  margin: 16px 0 26px;
+  color: var(--muted);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.mission-aside .button {
+  width: 100%;
+}
+
+.mission-aside-facts {
+  display: grid;
+  margin: 28px 0 0;
+  border-top: 1px solid var(--line);
+}
+
+.mission-aside-facts > div {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.mission-aside-facts > div:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.mission-aside-facts dt {
+  margin-bottom: 5px;
+  color: var(--gold);
+  font-size: 0.64rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.mission-aside-facts dd {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 0.98rem;
+  line-height: 1.4;
 }
 
 .section-heading p,

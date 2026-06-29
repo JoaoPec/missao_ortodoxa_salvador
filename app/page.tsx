@@ -301,6 +301,31 @@ export default function Home() {
             </p>
           </div>
         </div>
+        <aside className="mission-aside" data-reveal>
+          <p className="mission-aside-kicker">Primeira vez?</p>
+          <h3>Visite uma Divina Liturgia</h3>
+          <p>
+            Não é preciso ser ortodoxo nem avisar antes. Venha como visitante,
+            observe a beleza da liturgia e converse com a comunidade no seu tempo.
+          </p>
+          <a className="button button-primary" href={CONTACT_URL} target="_blank" rel="noreferrer">
+            Fale com a gente <ArrowIcon />
+          </a>
+          <dl className="mission-aside-facts">
+            <div>
+              <dt>Jurisdição</dt>
+              <dd>Patriarcado Ecumênico de Constantinopla</dd>
+            </div>
+            <div>
+              <dt>Liderança</dt>
+              <dd>Pe. Paísios, Hieromonge</dd>
+            </div>
+            <div>
+              <dt>Em Salvador desde</dt>
+              <dd>2023</dd>
+            </div>
+          </dl>
+        </aside>
       </section>
 
       <section className="distinction-section">
