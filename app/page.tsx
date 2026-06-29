@@ -49,10 +49,6 @@ const distinctions = [
     title: "Theosis",
     text: "A ortodoxia não é só doutrina: é transformação. A theosis é a participação real na vida divina, o fim último do ser humano.",
   },
-  {
-    title: "Unidade na diversidade",
-    text: "Grega, árabe, romena, brasileira: uma única fé em dezenas de culturas, unidas pela mesma doutrina e pelo mesmo cálice.",
-  },
 ];
 
 const sacraments = ["Batismo", "Crismação", "Divina Eucaristia", "Matrimônio", "Santa Unção", "Confissão", "Ordenação Sacerdotal"];
@@ -304,10 +300,6 @@ export default function Home() {
               bem-vindo entre nós.
             </p>
           </div>
-        </div>
-        <div className="mission-side-note" data-reveal>
-          <span>✦</span>
-          <p>A tradição da Igreja não é peça de museu: é vida recebida, celebrada e transmitida.</p>
         </div>
       </section>
 
