@@ -1,19 +1,9 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const CONTACT_URL = "https://ig.me/m/ortodoxa.salvador";
 const INSTAGRAM_URL = "https://www.instagram.com/ortodoxa.salvador/";
 const FACEBOOK_URL = "https://www.facebook.com/ortodoxa.salvador/";
-
-function OrthodoxCross() {
-  return (
-    <svg viewBox="0 0 48 72" aria-hidden="true">
-      <path
-        d="M21 3h6v14h13v5H27v11h18v6H27v22l10-7 4 5-17 11L7 59l4-5 10 7V39H3v-6h18V22H8v-5h13V3Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
 
 export default function PublicacoesLayout({
   children,
@@ -25,7 +15,7 @@ export default function PublicacoesLayout({
       </a>
       <header className="pub-header">
         <Link className="brand" href="/" aria-label="Missão Ortodoxa Grega em Salvador — página inicial">
-          <OrthodoxCross />
+          <Image src="/images/selo-patriarcado.png" alt="" width={46} height={46} className="seal" />
           <span>
             <strong>Missão Ortodoxa Grega</strong>
             <small>em Salvador</small>
@@ -43,7 +33,7 @@ export default function PublicacoesLayout({
       </main>
       <footer className="footer">
         <div className="footer-brand">
-          <OrthodoxCross />
+          <Image src="/images/selo-patriarcado.png" alt="" width={40} height={40} className="seal" />
           <div>
             <p>Missão Ortodoxa Grega em Salvador</p>
             <span>Patriarcado Ecumênico de Constantinopla</span>

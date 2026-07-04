@@ -2,12 +2,11 @@
 @import "tailwindcss";
 
 :root {
-  --ink: #160721;
-  --ink-2: #241039;
-  --blue: #2d1b55;
-  --purple: #4b1d6b;
-  --purple-2: #6d2a88;
-  --purple-soft: #efe6f4;
+  --ink: #1c0805;
+  --ink-2: #2b0d08;
+  --blue: #1d3e8a;
+  --crimson: #93140e;
+  --crimson-2: #b3231a;
   --plaster: #f1eadb;
   --paper: #fbf6ec;
   --paper-2: #e5d8bf;
@@ -17,10 +16,10 @@
   --olive: #747a3e;
   --sky: #466f82;
   --muted: #7a776d;
-  --line: rgba(10, 22, 35, 0.14);
+  --line: rgba(58, 28, 10, 0.15);
   --white-line: rgba(255, 255, 255, 0.16);
-  --shadow: 0 24px 80px rgba(4, 10, 18, 0.24);
-  --purple-shadow: 0 24px 90px rgba(50, 16, 79, 0.34);
+  --shadow: 0 24px 80px rgba(30, 10, 4, 0.24);
+  --crimson-shadow: 0 24px 90px rgba(80, 12, 8, 0.36);
 }
 
 * {
@@ -113,7 +112,7 @@ button:focus-visible {
   padding: 24px clamp(20px, 4vw, 64px);
   color: var(--paper);
   background:
-    linear-gradient(to bottom, rgba(22, 7, 33, 0.92), rgba(22, 7, 33, 0.18) 68%, rgba(22, 7, 33, 0));
+    linear-gradient(to bottom, rgba(28, 8, 5, 0.92), rgba(28, 8, 5, 0.18) 68%, rgba(28, 8, 5, 0));
 }
 
 .brand {
@@ -130,6 +129,19 @@ button:focus-visible {
   height: 46px;
   color: var(--gold-2);
   flex: 0 0 auto;
+}
+
+.seal {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(228, 189, 100, 0.55), 0 4px 14px rgba(30, 10, 4, 0.35);
+  flex: 0 0 auto;
+}
+
+.footer .seal {
+  width: 40px;
+  height: 40px;
 }
 
 .brand span {
@@ -232,9 +244,9 @@ button:focus-visible {
   gap: 4px;
   padding: 92px clamp(20px, 6vw, 40px) 28px;
   color: var(--paper);
-  background: linear-gradient(to bottom, rgba(22, 7, 33, 0.98), rgba(36, 16, 57, 0.98));
+  background: linear-gradient(to bottom, rgba(28, 8, 5, 0.98), rgba(43, 13, 8, 0.98));
   border-bottom: 1px solid var(--white-line);
-  box-shadow: var(--purple-shadow);
+  box-shadow: var(--crimson-shadow);
   transform: translateY(-100%);
   opacity: 0;
   pointer-events: none;
@@ -328,7 +340,7 @@ button:focus-visible {
   min-height: 100svh;
   overflow: hidden;
   background:
-    radial-gradient(circle at 70% 28%, rgba(109, 42, 136, 0.28), transparent 32%),
+    radial-gradient(circle at 70% 28%, rgba(179, 35, 26, 0.28), transparent 32%),
     var(--ink);
 }
 
@@ -353,7 +365,7 @@ button:focus-visible {
   background:
     linear-gradient(135deg, rgba(228, 189, 100, 0.08) 0 1px, transparent 1px 28px),
     linear-gradient(45deg, rgba(228, 189, 100, 0.055) 0 1px, transparent 1px 28px),
-    radial-gradient(circle at 73% 36%, rgba(109, 42, 136, 0.28), transparent 28%);
+    radial-gradient(circle at 73% 36%, rgba(179, 35, 26, 0.28), transparent 28%);
   mask-image: linear-gradient(90deg, transparent 0%, rgba(0, 0, 0, 0.26) 44%, rgba(0, 0, 0, 0.58) 100%);
 }
 
@@ -370,9 +382,9 @@ button:focus-visible {
   inset: 0;
   z-index: 1;
   background:
-    radial-gradient(circle at 30% 40%, rgba(109, 42, 136, 0.2), transparent 34%),
-    linear-gradient(90deg, rgba(22, 7, 33, 0.96) 0%, rgba(22, 7, 33, 0.68) 35%, rgba(22, 7, 33, 0.12) 68%, rgba(22, 7, 33, 0.34) 100%),
-    linear-gradient(180deg, rgba(22, 7, 33, 0.12), var(--ink) 100%);
+    radial-gradient(circle at 30% 40%, rgba(179, 35, 26, 0.2), transparent 34%),
+    linear-gradient(90deg, rgba(28, 8, 5, 0.96) 0%, rgba(28, 8, 5, 0.68) 35%, rgba(28, 8, 5, 0.12) 68%, rgba(28, 8, 5, 0.34) 100%),
+    linear-gradient(180deg, rgba(28, 8, 5, 0.12), var(--ink) 100%);
 }
 
 .hero-content {
@@ -573,7 +585,7 @@ button:focus-visible {
   padding: 22px;
   color: var(--paper);
   border-top: 1px solid rgba(228, 189, 100, 0.45);
-  background: rgba(36, 16, 57, 0.5);
+  background: rgba(43, 13, 8, 0.5);
   backdrop-filter: blur(12px);
 }
 
@@ -827,8 +839,8 @@ button:focus-visible {
 }
 
 .belief-grid article:hover {
-  background: #2c1647;
-  box-shadow: 0 -3px 0 var(--gold) inset, 0 18px 44px rgba(4, 10, 18, 0.4);
+  background: #3a1009;
+  box-shadow: 0 -3px 0 var(--gold) inset, 0 18px 44px rgba(30, 10, 4, 0.4);
   transform: translateY(-3px);
   z-index: 1;
 }
@@ -915,7 +927,7 @@ button:focus-visible {
 
 .stat-grid article:hover {
   background: #fff;
-  box-shadow: 0 -3px 0 var(--gold) inset, 0 14px 40px rgba(4, 10, 18, 0.12);
+  box-shadow: 0 -3px 0 var(--gold) inset, 0 14px 40px rgba(30, 10, 4, 0.12);
   transform: translateY(-3px);
 }
 
@@ -1025,7 +1037,7 @@ button:focus-visible {
 
 .book-media:hover {
   transform: rotate(0deg) translateY(0);
-  box-shadow: 0 32px 100px rgba(4, 10, 18, 0.38);
+  box-shadow: 0 32px 100px rgba(30, 10, 4, 0.38);
 }
 
 .book-image {
@@ -1306,7 +1318,7 @@ button:focus-visible {
   color: var(--paper);
   border-top: 3px solid var(--gold-2);
   background: var(--ink);
-  box-shadow: var(--purple-shadow);
+  box-shadow: var(--crimson-shadow);
 }
 
 .visit-card::before {
@@ -1614,6 +1626,7 @@ button:focus-visible {
 .pub-body ul {
   margin: 0 0 1.2em;
   padding-left: 1.3em;
+  list-style: disc;
 }
 
 .pub-body li {
@@ -1641,7 +1654,7 @@ button:focus-visible {
   color: var(--paper);
   border-top: 3px solid var(--gold-2);
   background: var(--ink);
-  box-shadow: var(--purple-shadow);
+  box-shadow: var(--crimson-shadow);
 }
 
 .pub-cta > p {
@@ -1775,6 +1788,11 @@ button:focus-visible {
   .brand svg {
     width: 23px;
     height: 34px;
+  }
+
+  .brand .seal {
+    width: 36px;
+    height: 36px;
   }
 
   .header-socials {

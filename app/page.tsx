@@ -186,7 +186,7 @@ export default function Home() {
       </a>
       <header className="site-header" aria-label="Navegacao principal">
         <a className="brand" href="#top" aria-label="Missão Ortodoxa Grega em Salvador">
-          <OrthodoxCross />
+          <Image src="/images/selo-patriarcado.png" alt="" width={46} height={46} className="seal" />
           <span>
             <strong>Missão Ortodoxa Grega</strong>
             <small>em Salvador</small>
@@ -496,7 +496,7 @@ export default function Home() {
 
       <footer className="footer">
         <div className="footer-brand">
-          <OrthodoxCross />
+          <Image src="/images/selo-patriarcado.png" alt="" width={40} height={40} className="seal" />
           <div>
             <p>Missão Ortodoxa Grega em Salvador</p>
             <span>Patriarcado Ecumênico de Constantinopla</span>
