@@ -3,26 +3,14 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://ortodoxasalvador.org.br"),
-  title: "Missão Ortodoxa Grega em Salvador | Igreja Ortodoxa na Bahia",
+  title: "Igreja Ortodoxa em Salvador, Bahia | Missão Ortodoxa Grega",
   description:
-    "A Missão Ortodoxa Grega em Salvador (BA) é uma comunidade cristã ortodoxa vinculada ao Patriarcado Ecumênico de Constantinopla. Conheça a fé ortodoxa, participe das liturgias e entre em contato conosco.",
-  keywords: [
-    "Igreja Ortodoxa Salvador",
-    "Igreja Ortodoxa Bahia",
-    "Missão Ortodoxa Grega Salvador",
-    "Ortodoxia Salvador",
-    "Igreja Grega Salvador",
-    "Patriarcado Ecumênico Bahia",
-    "Liturgia Ortodoxa Salvador",
-    "Batismo Ortodoxo Salvador",
-    "Casamento Ortodoxo Salvador",
-    "Comunidade Ortodoxa Salvador",
-  ],
+    "Igreja Ortodoxa em Salvador, Bahia: Divinas Liturgias, catequese para adultos e acolhida a visitantes. Missão do Patriarcado Ecumênico de Constantinopla.",
   authors: [{ name: "Missão Ortodoxa Grega em Salvador" }],
   openGraph: {
-    title: "Missão Ortodoxa Grega em Salvador",
+    title: "Igreja Ortodoxa em Salvador, Bahia | Missão Ortodoxa Grega",
     description:
-      "Comunidade cristã ortodoxa em Salvador, BA. Liturgias, sacramentos e acolhimento para todos que buscam a fé ortodoxa na Bahia.",
+      "Divinas Liturgias, catequese para adultos e acolhida a visitantes em Salvador, BA. Missão do Patriarcado Ecumênico de Constantinopla.",
     type: "website",
     locale: "pt_BR",
     siteName: "Missão Ortodoxa Grega em Salvador",
@@ -30,8 +18,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Missão Ortodoxa Grega em Salvador",
-    description: "Igreja Ortodoxa em Salvador, BA - Patriarcado Ecumênico de Constantinopla.",
+    title: "Igreja Ortodoxa em Salvador, Bahia | Missão Ortodoxa Grega",
+    description:
+      "Divinas Liturgias, catequese para adultos e acolhida a visitantes em Salvador, BA.",
   },
   robots: {
     index: true,
@@ -58,20 +47,47 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "Church",
-              name: "Missão Ortodoxa Grega em Salvador",
-              alternateName: "Igreja Ortodoxa Grega Salvador",
-              description:
-                "Comunidade cristã ortodoxa em Salvador, Bahia, vinculada ao Patriarcado Ecumênico de Constantinopla.",
-              address: {
-                "@type": "PostalAddress",
-                addressLocality: "Salvador",
-                addressRegion: "BA",
-                addressCountry: "BR",
-              },
-              sameAs: [
-                "https://www.instagram.com/ortodoxa.salvador/",
-                "https://www.facebook.com/ortodoxa.salvador/",
+              "@graph": [
+                {
+                  "@type": "Church",
+                  "@id": "https://ortodoxasalvador.org.br/#igreja",
+                  name: "Missão Ortodoxa Grega em Salvador",
+                  alternateName: [
+                    "Igreja Ortodoxa em Salvador",
+                    "Igreja Ortodoxa Grega Salvador",
+                  ],
+                  url: "https://ortodoxasalvador.org.br",
+                  image: "https://ortodoxasalvador.org.br/images/orthodox-hero.png",
+                  description:
+                    "Comunidade cristã ortodoxa em Salvador, Bahia, vinculada ao Patriarcado Ecumênico de Constantinopla. Divinas Liturgias, catequese para adultos e acolhida a visitantes.",
+                  foundingDate: "2023",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Salvador",
+                    addressRegion: "BA",
+                    addressCountry: "BR",
+                  },
+                  sameAs: [
+                    "https://www.instagram.com/ortodoxa.salvador/",
+                    "https://www.facebook.com/ortodoxa.salvador/",
+                  ],
+                },
+                {
+                  "@type": "Book",
+                  name: "A Confissão Ortodoxa da Igreja Católica Apostólica Oriental",
+                  author: { "@type": "Person", name: "São Pedro Moguila" },
+                  inLanguage: "pt-BR",
+                  translator: { "@type": "Person", name: "Pe. Paísios, Hieromonge" },
+                  publisher: { "@id": "https://ortodoxasalvador.org.br/#igreja" },
+                  image: "https://ortodoxasalvador.org.br/images/confissao-kindle.png",
+                  offers: {
+                    "@type": "Offer",
+                    price: "29.90",
+                    priceCurrency: "BRL",
+                    url: "https://pay.hotmart.com/L103598945N?bid=1780150292559",
+                    availability: "https://schema.org/InStock",
+                  },
+                },
               ],
             }),
           }}
