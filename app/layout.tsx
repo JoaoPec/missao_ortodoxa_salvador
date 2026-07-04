@@ -72,22 +72,6 @@ export default function RootLayout({
                     "https://www.facebook.com/ortodoxa.salvador/",
                   ],
                 },
-                {
-                  "@type": "Book",
-                  name: "A Confissão Ortodoxa da Igreja Católica Apostólica Oriental",
-                  author: { "@type": "Person", name: "São Pedro Moguila" },
-                  inLanguage: "pt-BR",
-                  translator: { "@type": "Person", name: "Pe. Paísios, Hieromonge" },
-                  publisher: { "@id": "https://ortodoxasalvador.org.br/#igreja" },
-                  image: "https://ortodoxasalvador.org.br/images/confissao-kindle.png",
-                  offers: {
-                    "@type": "Offer",
-                    price: "29.90",
-                    priceCurrency: "BRL",
-                    url: "https://pay.hotmart.com/L103598945N?bid=1780150292559",
-                    availability: "https://schema.org/InStock",
-                  },
-                },
               ],
             }),
           }}

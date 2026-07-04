@@ -1,19 +1,20 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const CONTACT_URL = "https://ig.me/m/ortodoxa.salvador";
 const BOOK_URL = "https://pay.hotmart.com/L103598945N?bid=1780150292559";
 const INSTAGRAM_URL = "https://www.instagram.com/ortodoxa.salvador/";
 const FACEBOOK_URL = "https://www.facebook.com/ortodoxa.salvador/";
-const READ_URL = "https://confissao-ortodoxa.notion.site/in";
 
 const navItems = [
   ["Missão", "#missao"],
   ["Movimento", "#movimento"],
   ["Livro", "#livro"],
   ["Liturgia", "#liturgia"],
+  ["Publicações", "/publicacoes"],
   ["Visite-nos", "#contato"],
 ];
 
@@ -420,9 +421,9 @@ export default function Home() {
             <a className="button button-primary" href={BOOK_URL} target="_blank" rel="noreferrer">
               Adquirir por R$ 29,90 <ArrowIcon />
             </a>
-            <a className="button button-text" href={READ_URL} target="_blank" rel="noreferrer">
-              Ler apresentação <ArrowIcon />
-            </a>
+            <Link className="button button-text" href="/publicacoes/confissao-ortodoxa">
+              Conhecer o livro <ArrowIcon />
+            </Link>
           </div>
         </div>
       </section>
@@ -502,6 +503,9 @@ export default function Home() {
           </div>
         </div>
         <div className="footer-contact">
+          <Link className="footer-direct" href="/publicacoes">
+            Publicações
+          </Link>
           <a className="footer-direct" href={CONTACT_URL} target="_blank" rel="noreferrer">
             Fale com a gente <ArrowIcon />
           </a>

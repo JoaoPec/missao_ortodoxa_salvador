@@ -1,6 +1,6 @@
 # Plano — Página de Publicações
 
-> **Status: planejamento.** Nada aqui está implementado; este documento orienta a implementação futura.
+> **Status: implementado** (estrutura, 5 publicações de lançamento, sitemap e links internos). Este documento segue como guia para novas publicações — ver "Critérios de pronto".
 
 ## Objetivo
 
