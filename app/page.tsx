@@ -180,6 +180,9 @@ export default function Home() {
 
   return (
     <main>
+      <a className="skip-link" href="#missao">
+        Pular para o conteúdo
+      </a>
       <header className="site-header" aria-label="Navegacao principal">
         <a className="brand" href="#top" aria-label="Missão Ortodoxa Grega em Salvador">
           <OrthodoxCross />

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ortodoxasalvador.org.br"),
   title: "Missão Ortodoxa Grega em Salvador | Igreja Ortodoxa na Bahia",
   description:
     "A Missão Ortodoxa Grega em Salvador (BA) é uma comunidade cristã ortodoxa vinculada ao Patriarcado Ecumênico de Constantinopla. Conheça a fé ortodoxa, participe das liturgias e entre em contato conosco.",
@@ -25,6 +26,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     siteName: "Missão Ortodoxa Grega em Salvador",
+    images: ["/images/orthodox-hero.png"],
   },
   twitter: {
     card: "summary_large_image",
