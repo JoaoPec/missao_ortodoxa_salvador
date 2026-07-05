@@ -69,7 +69,6 @@ export default function RootLayout({
                   },
                   sameAs: [
                     "https://www.instagram.com/ortodoxa.salvador/",
-                    "https://www.facebook.com/ortodoxa.salvador/",
                   ],
                 },
               ],

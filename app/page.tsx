@@ -7,7 +7,6 @@ import { useEffect, useState } from "react";
 const CONTACT_URL = "https://ig.me/m/ortodoxa.salvador";
 const BOOK_URL = "https://pay.hotmart.com/L103598945N?bid=1780150292559";
 const INSTAGRAM_URL = "https://www.instagram.com/ortodoxa.salvador/";
-const FACEBOOK_URL = "https://www.facebook.com/ortodoxa.salvador/";
 
 const navItems = [
   ["Missão", "#missao"],
@@ -16,25 +15,6 @@ const navItems = [
   ["Liturgia", "#liturgia"],
   ["Publicações", "/publicacoes"],
   ["Visite-nos", "#contato"],
-];
-
-const momentumStats = [
-  {
-    value: "16–18 mil",
-    label: "adultos recebidos em paróquias ortodoxas dos EUA apenas no ciclo pascal de 2026.",
-  },
-  {
-    value: "20–30 mil",
-    label: "conversões projetadas para 2026, ante 4 a 5 mil por ano ao longo da década de 2010.",
-  },
-  {
-    value: "2023",
-    label: "início da atuação regular da missão em Salvador, com crescimento expressivo desde outubro de 2025.",
-  },
-  {
-    value: "10–15",
-    label: "fiéis a cada Divina Liturgia, chegando ao maior número nas grandes festas do calendário litúrgico.",
-  },
 ];
 
 const distinctions = [
@@ -65,7 +45,7 @@ const welcomePaths = [
   },
   {
     title: "Quero me converter à Ortodoxia",
-    text: "Oferecemos catequese personalizada para adultos que desejam receber os sacramentos.",
+    text: "Oferecemos catequese para adultos que desejam receber os sacramentos nos sábados 14h e domingos às 18h.",
   },
   {
     title: "Sou ortodoxo e me mudei para Salvador",
@@ -121,17 +101,6 @@ function InstagramIcon() {
   );
 }
 
-function FacebookIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true">
-      <path
-        d="M14.1 8.2h2.2V4.8a11.2 11.2 0 0 0-3.2-.2c-3.1 0-5.2 1.9-5.2 5.4v3H4.5v3.8h3.4v6.7h4.1v-6.7h3.3l.6-3.8H12v-2.6c0-1.1.3-2.2 2.1-2.2Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
-}
-
 function MenuIcon({ open }: { open: boolean }) {
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true" className={open ? "menu-icon is-open" : "menu-icon"}>
@@ -147,9 +116,6 @@ function SocialLinks({ className = "" }: { className?: string }) {
     <div className={className} aria-label="Redes sociais">
       <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer" aria-label="Instagram da Missão Ortodoxa em Salvador">
         <InstagramIcon />
-      </a>
-      <a href={FACEBOOK_URL} target="_blank" rel="noreferrer" aria-label="Facebook da Missão Ortodoxa em Salvador">
-        <FacebookIcon />
       </a>
     </div>
   );
@@ -350,21 +316,15 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="movimento" className="momentum-section">
-        <SectionHeading
-          overline="Um momento histórico"
-          title="O mundo está redescobrindo a Ortodoxia"
-          text="O crescimento em Salvador acompanha um movimento mundial de reaproximação com a fé cristã das origens. Cada vez mais jovens chegam à missão pelo estudo pessoal e por conteúdos sobre a Ortodoxia na internet."
-        />
-        <div className="stat-grid" data-reveal>
-          {momentumStats.map((stat) => (
-            <article key={stat.value}>
-              <strong>{stat.value}</strong>
-              <p>{stat.label}</p>
-            </article>
-          ))}
-        </div>
+      <section id="movimento" className="momentum-section momentum-section-quote">
         <figure className="momentum-quote" data-reveal>
+          <Image
+            src="/images/brasao-patriarcado.webp"
+            alt="Brasão do Patriarcado Ecumênico de Constantinopla"
+            width={208}
+            height={232}
+            className="momentum-crest"
+          />
           <blockquote>
             O Cristianismo Ortodoxo se define por sua fidelidade às tradições
             litúrgicas e dogmáticas apostólicas da Igreja. Não por acréscimo, nem por
@@ -373,10 +333,6 @@ export default function Home() {
           </blockquote>
           <figcaption>Pe. Paísios, Hieromonge — líder da missão em Salvador</figcaption>
         </figure>
-        <p className="momentum-source" data-reveal>
-          Estimativas do Orthodox Studies Institute (EUA) para o ciclo pascal de 2026,
-          analisadas por Matthew Namee e pelo diácono Seraphim Rohlin.
-        </p>
       </section>
 
       <section id="livro" className="book-section">
@@ -397,7 +353,7 @@ export default function Home() {
           <p>
             Redigida em 1640 e aprovada pelos Patriarcas de Constantinopla, Alexandria
             e Jerusalém, a Confissão Ortodoxa de São Pedro Moguila é um dos grandes
-            documentos doutrinários da Igreja Ortodoxa: uma exposição clara e completa
+            documentos doutrinários da Igreja Ortodoxa: uma exposição clara
             da fé apostólica em forma de perguntas e respostas.
           </p>
           <p>
@@ -440,12 +396,6 @@ export default function Home() {
             <a className="button button-primary" href={CONTACT_URL} target="_blank" rel="noreferrer">
               Perguntar horários <ArrowIcon />
             </a>
-            <a className="social-link" href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
-              Instagram
-            </a>
-            <a className="social-link" href={FACEBOOK_URL} target="_blank" rel="noreferrer">
-              Facebook
-            </a>
           </div>
         </div>
         <div className="sacrament-list" data-reveal>
@@ -465,8 +415,8 @@ export default function Home() {
           <h2>Para quem é a Missão Ortodoxa?</h2>
           <p>
             Você pode chegar como visitante, curioso, catecúmeno ou fiel ortodoxo.
-            Mande uma mensagem no direct do nosso Instagram e um membro da comunidade
-            responderá para tirar dúvidas, enviar informações ou agendar uma visita.
+            Mande uma mensagem no direct do nosso Instagram e poderá tirar dúvidas,
+            receber informações ou agendar uma visita.
           </p>
           <div className="welcome-list">
             {welcomePaths.map((item) => (
@@ -478,7 +428,6 @@ export default function Home() {
           </div>
         </div>
         <div className="visit-card" data-reveal>
-          <p>Primeiro passo</p>
           <h3>Dê o primeiro passo</h3>
           <a className="button button-primary" href={CONTACT_URL} target="_blank" rel="noreferrer">
             Fale com a gente <ArrowIcon />
@@ -486,9 +435,6 @@ export default function Home() {
           <div className="contact-links">
             <a href={INSTAGRAM_URL} target="_blank" rel="noreferrer">
               @ortodoxa.salvador
-            </a>
-            <a href={FACEBOOK_URL} target="_blank" rel="noreferrer">
-              facebook.com/ortodoxa.salvador
             </a>
           </div>
         </div>
