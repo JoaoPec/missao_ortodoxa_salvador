@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://ortodoxasalvador.org.br/sitemap.xml",
+    sitemap: "https://www.ortodoxabahia.com.br/sitemap.xml",
   };
 }

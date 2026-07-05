@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { formatarData, getPublicacao, getPublicacoes } from "@/lib/publicacoes";
 
-const SITE_URL = "https://ortodoxasalvador.org.br";
+const SITE_URL = "https://www.ortodoxabahia.com.br";
 const CONTACT_URL = "https://ig.me/m/ortodoxa.salvador";
 const BOOK_URL = "https://pay.hotmart.com/L103598945N?bid=1780150292559";
 

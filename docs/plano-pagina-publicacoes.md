@@ -56,7 +56,7 @@ Cada `/publicacoes/[slug]` deve ter:
 - **`title`**: pergunta/tema primeiro, marca depois — `O que é a Divina Liturgia? | Missão Ortodoxa em Salvador` (≤ 60 caracteres).
 - **`description`**: resposta resumida em ~150 caracteres, única por página.
 - **`alternates.canonical`**: `/publicacoes/[slug]`.
-- **JSON-LD `Article`**: `headline`, `datePublished`, `dateModified`, `inLanguage: "pt-BR"`, `author` (Person: Pe. Paísios) e `publisher: { "@id": "https://ortodoxasalvador.org.br/#igreja" }` — reutiliza a entidade `Church` já declarada na home.
+- **JSON-LD `Article`**: `headline`, `datePublished`, `dateModified`, `inLanguage: "pt-BR"`, `author` (Person: Pe. Paísios) e `publisher: { "@id": "https://www.ortodoxabahia.com.br/#igreja" }` — reutiliza a entidade `Church` já declarada na home.
 - **`BreadcrumbList`**: Início → Publicações → título.
 - **Heading único `<h1>`** = título do artigo; subtítulos em `<h2>/<h3>` respondendo subperguntas (bom para featured snippets).
 - **og:image**: imagem própria por artigo quando houver; fallback para a imagem do hero.

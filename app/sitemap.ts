@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getPublicacoes } from "@/lib/publicacoes";
 
-const SITE_URL = "https://ortodoxasalvador.org.br";
+const SITE_URL = "https://www.ortodoxabahia.com.br";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
