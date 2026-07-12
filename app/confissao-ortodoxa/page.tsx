@@ -8,9 +8,9 @@ const BOOK_URL = "https://pay.hotmart.com/L103598945N?bid=1780150292559";
 const INSTAGRAM_URL = "https://www.instagram.com/ortodoxa.salvador/";
 
 export const metadata: Metadata = {
-  title: "A Confissão Ortodoxa | Missão Ortodoxa em Salvador",
+  title: "A Confissão Ortodoxa de São Pedro Moguila | Missão Ortodoxa em Salvador",
   description:
-    "Catecismo Ortodoxo popular revisado e aprovado pelas maiores autoridades da Ortodoxia ao longo dos últimos 5 séculos. Conheça a Confissão Ortodoxa de São Pedro Moguila.",
+    "Catecismo Ortodoxo aprovado pelos 4 Patriarcados Orientais. A doutrina da Igreja em perguntas e respostas — adquira por R$ 29,90.",
   alternates: { canonical: `${SITE_URL}/confissao-ortodoxa` },
   openGraph: {
     title: "A Confissão Ortodoxa de São Pedro Moguila",
@@ -103,27 +103,45 @@ export default function ConfissaoOrtodoxaPage() {
           />
         </div>
         <div className="book-copy">
-          <p className="book-kicker">Catecismo Ortodoxo</p>
+          <p className="book-kicker">A doutrina ortodoxa em um só volume</p>
           <h2>A Confissão Ortodoxa</h2>
           <h3>da Igreja Católica Apostólica Oriental</h3>
           <p className="book-author">São Pedro Moguila</p>
           <p>
-            Uma ponte construída há séculos, mas que ainda serve de passagem
-            para aqueles que querem entender o que é e o que ensina a Igreja
-            Ortodoxa.
+            Um catecismo de 1640 que ainda hoje serve de passagem para quem
+            quer entender o que a Igreja Ortodoxa crê, ensina e confessa.
           </p>
           <div className="book-points" aria-label="Destaques do livro">
-            <span>Doutrina</span>
-            <span>Catequese</span>
-            <span>Tradição</span>
+            <span>Aprovado por 4 Patriarcados</span>
+            <span>Perguntas e Respostas</span>
+            <span>3 Partes + Apêndices</span>
           </div>
           <div className="book-actions">
             <a className="button button-primary" href={BOOK_URL} target="_blank" rel="noreferrer">
               Adquirir por R$ 29,90
             </a>
-            <Link className="button button-text" href="/publicacoes/confissao-ortodoxa">
-              Saiba mais sobre o livro
-            </Link>
+            <span className="book-cta-hint">Pagamento único · Leitura no Kindle, tablet ou celular</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="trust-strip">
+        <div className="trust-strip-inner">
+          <div className="trust-item">
+            <span className="trust-number">1643</span>
+            <span className="trust-label">Aprovado pelos 4 Patriarcados Orientais</span>
+          </div>
+          <div className="trust-item">
+            <span className="trust-number">380+</span>
+            <span className="trust-label">Anos de autoridade doutrinária</span>
+          </div>
+          <div className="trust-item">
+            <span className="trust-number">3</span>
+            <span className="trust-label">Partes: Fé, Esperança e Caridade</span>
+          </div>
+          <div className="trust-item">
+            <span className="trust-number">4</span>
+            <span className="trust-label">Conteúdos bônus de teologia</span>
           </div>
         </div>
       </section>
@@ -138,7 +156,12 @@ export default function ConfissaoOrtodoxaPage() {
             <span>A Confissão Ortodoxa</span>
           </nav>
 
-          <h1>Catecismo Ortodoxo popular revisado e aprovado pelas maiores autoridades da Ortodoxia ao longo dos últimos 5 séculos</h1>
+          <h1>O catecismo que há 5 séculos explica o que a Igreja Ortodoxa acredita</h1>
+
+          <p className="pub-lead">
+            Revisado e aprovado pelos Patriarcas de Constantinopla, Alexandria,
+            Antioquia e Jerusalém — a mesma fé apostólica, agora em português.
+          </p>
 
           <div className="pub-body">
             <p>
@@ -200,41 +223,41 @@ export default function ConfissaoOrtodoxaPage() {
               Pressionados por uma maioria protestante e romana um pequeno povo ortodoxo precisa da iluminação catequética da Santa Igreja — esse era o público-alvo de São Pedro Moguila no séc. XVII, muito semelhante ao estado atual da Ortodoxia no Brasil.
             </p>
 
-            <h2>Conteúdo da Confissão</h2>
+            <h2>O que você vai encontrar no livro</h2>
 
-            <h3>Parte I: Da Fé</h3>
+            <h3>Parte I — Da Fé</h3>
             <p>
               Exposição sistemática dos dogmas centrais da fé cristã ortodoxa: a Santíssima Trindade, a criação, a encarnação do Verbo, a obra salvífica de Cristo, a Igreja, os sacramentos, os santos ícones, a veneração dos santos e a autoridade da Tradição e das Escrituras.
             </p>
 
-            <h3>Parte II: Da Esperança</h3>
+            <h3>Parte II — Da Esperança</h3>
             <p>
               Trata da oração, do Pai-Nosso, das bem-aventuranças e da expectativa cristã quanto à ressurreição, ao juízo e à vida futura, articulando a esperança escatológica da Igreja com a vida concreta do fiel.
             </p>
 
-            <h3>Parte III: Da Caridade</h3>
+            <h3>Parte III — Da Caridade</h3>
             <p>
               Aborda a vida moral cristã à luz dos mandamentos de Deus e da Igreja, o amor ao próximo, o arrependimento, a confissão, as boas obras e a vivência prática da fé como resposta concreta à graça divina.
             </p>
 
-            <h2>Conteúdos bônus: explicações para maior compreensão do contexto e da teologia da obra</h2>
+            <h2>4 conteúdos bônus incluídos nesta edição</h2>
 
-            <h3>Para uma avaliação da teologia de São Pedro Moguila</h3>
+            <h3>1. Para uma avaliação da teologia de São Pedro Moguila</h3>
             <p>
               Texto analítico que reconstrói o contexto histórico, eclesial e intelectual no qual a Confissão foi produzida, explicando as circunstâncias dramáticas enfrentadas pela Ortodoxia após a queda de Constantinopla e demonstrando por que a obra de Moguila se tornou um marco teológico recebido pela Igreja.
             </p>
 
-            <h3>Sobre a questão da influência ocidental na herança teológica do Santo Hierarca Pedro Moguila</h3>
+            <h3>2. Sobre a questão da influência ocidental na herança teológica do Santo Hierarca Pedro Moguila</h3>
             <p>
               Ensaio crítico que examina, com precisão histórica e teológica, as acusações de "latinização" feitas contra Moguila, distinguindo claramente entre empréstimos formais (método, linguagem, estrutura) e fidelidade doutrinária, e mostrando como a Confissão permaneceu plenamente ortodoxa em conteúdo, apesar do uso de categorias compreensíveis no Ocidente.
             </p>
 
-            <h3>Apêndice I: O Pecado Ancestral e o conceito de "culpa"</h3>
+            <h3>3. Apêndice I — O Pecado Ancestral e o conceito de "culpa"</h3>
             <p>
               Análise detalhada da diferença entre o ensinamento ortodoxo sobre o pecado ancestral e as formulações ocidentais de culpa herdada, esclarecendo equívocos comuns e demonstrando o que grandes santos e teólogos Ortodoxos afirmaram sobre este ponto sensível da antropologia teológica.
             </p>
 
-            <h3>Apêndice II: A Transubstanciação</h3>
+            <h3>4. Apêndice II — A Transubstanciação</h3>
             <p>
               Esclarecimento doutrinário sobre o uso do termo "transubstanciação" no contexto da tradição ortodoxa, analisando sua origem, seu emprego histórico e o modo como foi compreendido por autores e santos anteriores às controvérsias modernas. O texto explica como esse vocabulário foi utilizado para afirmar a real transformação dos Dons Eucarísticos, ao mesmo tempo em que delimita cuidadosamente seu significado, sem pressupor a adoção obrigatória de sistemas filosóficos específicos, permitindo assim uma compreensão mais precisa do ensinamento eucarístico da Igreja Ortodoxa.
             </p>
@@ -248,15 +271,18 @@ export default function ConfissaoOrtodoxaPage() {
           </div>
 
           <aside className="pub-cta">
-            <p>Adquira o livro</p>
+            <p>Garanta o seu exemplar digital</p>
             <h2>A Confissão Ortodoxa de São Pedro Moguila</h2>
             <span>
-              Disponível em formato digital. Leia no Kindle, tablet ou celular e
-              aprofunde-se na fé apostólica preservada por dois mil anos.
+              Pagamento único de R$ 29,90. Leitura no Kindle, tablet ou celular.
+              Comece hoje mesmo a aprofundar-se na fé apostólica.
             </span>
             <a className="button button-primary" href={BOOK_URL} target="_blank" rel="noreferrer">
               Adquirir por R$ 29,90
             </a>
+            <p className="pub-cta-guarantee">
+              <span>Compra segura via Hotmart</span>
+            </p>
           </aside>
         </article>
       </main>
