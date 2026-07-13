@@ -6,14 +6,28 @@ export const metadata: Metadata = {
   title: "Publicações | Missão Ortodoxa Grega em Salvador",
   description:
     "Artigos de catequese, guias para visitantes e traduções da Missão Ortodoxa Grega em Salvador: fé ortodoxa, Divina Liturgia, sacramentos e calendário litúrgico.",
+  keywords: [
+    "publicações ortodoxas",
+    "catequese ortodoxa",
+    "artigos ortodoxos",
+    "Igreja Ortodoxa Salvador",
+    "traduções ortodoxas",
+  ],
   alternates: { canonical: "/publicacoes" },
   openGraph: {
     title: "Publicações | Missão Ortodoxa Grega em Salvador",
     description:
       "Artigos de catequese, guias para visitantes e traduções da Missão Ortodoxa Grega em Salvador.",
+    url: "/publicacoes",
     type: "website",
     locale: "pt_BR",
     images: ["/images/orthodox-hero.png"],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Publicações | Missão Ortodoxa Grega em Salvador",
+    description:
+      "Artigos de catequese, guias para visitantes e traduções da Missão Ortodoxa Grega em Salvador.",
   },
 };
 

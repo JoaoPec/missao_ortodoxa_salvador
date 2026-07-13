@@ -21,15 +21,27 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: `${publicacao.title} | Missão Ortodoxa em Salvador`,
     description: publicacao.description,
+    keywords: [
+      "Igreja Ortodoxa",
+      "catequese",
+      "Salvador Bahia",
+      publicacao.title,
+    ],
     alternates: { canonical: `/publicacoes/${publicacao.slug}` },
     openGraph: {
       title: publicacao.title,
       description: publicacao.description,
+      url: `/publicacoes/${publicacao.slug}`,
       type: "article",
       locale: "pt_BR",
       publishedTime: publicacao.date,
       modifiedTime: publicacao.updated,
       images: ["/images/orthodox-hero.png"],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: publicacao.title,
+      description: publicacao.description,
     },
   };
 }

@@ -1687,6 +1687,110 @@ button:focus-visible {
   color: var(--ink);
 }
 
+.pub-cta-inline {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin: 2.2em 0;
+  padding: 28px 32px;
+  border-left: 3px solid var(--gold-2);
+  background: rgba(196, 139, 42, 0.06);
+}
+
+.pub-cta-inline-copy {
+  flex: 1 1 300px;
+}
+
+.pub-cta-inline-copy span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--gold);
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.pub-cta-inline-copy p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+.pub-cta-inline-copy strong {
+  color: var(--ink);
+}
+
+.pub-cta-inline .button {
+  flex: 0 0 auto;
+}
+
+.pub-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1px;
+  margin: 1.4em 0 2em;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+
+.pub-card {
+  padding: 28px 26px;
+  background: rgba(251, 246, 236, 0.58);
+  transition: background 200ms ease;
+}
+
+.pub-card:hover {
+  background: rgba(251, 246, 236, 0.92);
+}
+
+.pub-card-num {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 16px;
+  color: var(--gold);
+  border: 1px solid rgba(196, 139, 42, 0.36);
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.pub-card h3 {
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 0.84rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  line-height: 1.3;
+}
+
+.pub-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.7;
+}
+
+.pub-mockup-wrap {
+  margin: 2.2em 0;
+  text-align: center;
+}
+
+.pub-mockup {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  box-shadow: 0 20px 60px rgba(30, 10, 4, 0.18);
+  border: 1px solid var(--line);
+}
+
 .pub-cta {
   margin-top: clamp(40px, 6vw, 60px);
   padding: clamp(26px, 4vw, 40px);
@@ -1958,5 +2062,14 @@ button:focus-visible {
   .footer {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .pub-cta-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pub-cta-inline .button {
+    width: 100%;
   }
 }

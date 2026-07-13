@@ -11,14 +11,30 @@ export const metadata: Metadata = {
   title: "A Confissão Ortodoxa de São Pedro Moguila | Missão Ortodoxa em Salvador",
   description:
     "Catecismo Ortodoxo aprovado pelos 4 Patriarcados Orientais. A doutrina da Igreja em perguntas e respostas — adquira por R$ 29,90.",
+  keywords: [
+    "Confissão Ortodoxa",
+    "São Pedro Moguila",
+    "catecismo ortodoxo",
+    "livro ortodoxo",
+    "doutrina ortodoxa",
+    "Igreja Ortodoxa",
+    "Patriarcado Ecumênico",
+  ],
   alternates: { canonical: `${SITE_URL}/confissao-ortodoxa` },
   openGraph: {
     title: "A Confissão Ortodoxa de São Pedro Moguila",
     description:
       "Catecismo Ortodoxo popular revisado e aprovado pelas maiores autoridades da Ortodoxia. Uma exposição completa da fé apostólica em perguntas e respostas.",
+    url: `${SITE_URL}/confissao-ortodoxa`,
     type: "article",
     locale: "pt_BR",
     images: [`${SITE_URL}/images/confissao-kindle.png`],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "A Confissão Ortodoxa de São Pedro Moguila",
+    description:
+      "Catecismo Ortodoxo popular revisado e aprovado pelas maiores autoridades da Ortodoxia. Uma exposição completa da fé apostólica em perguntas e respostas.",
   },
 };
 
@@ -168,14 +184,18 @@ export default function ConfissaoOrtodoxaPage() {
               A <strong>Confissão Ortodoxa da Igreja Católica Apostólica Oriental</strong> é um livro catequético elaborado pelo Metropolita São Pedro Moguila no século XVII, em um período marcado por intensos debates teológicos e por profundas transformações religiosas na Europa Oriental.
             </p>
             <p>
-              Seu surgimento responde à necessidade de apresentar, de forma clara e ordenada, o ensinamento da Igreja Ortodoxa em diálogo com as formulações protestantes e católico-romanas então predominantes.
+              Seu surgimento responde à necessidade de apresentar, de forma clara e ordenada, o ensinamento da Igreja Ortodoxa em diálogo com as formulações protestantes e católico-romanas então predominantes. Longe de se limitar à controvérsia, a obra oferece uma exposição sistemática e pastoral da fé ortodoxa, com o objetivo de tornar inteligíveis seus dogmas, práticas e fundamentos teológicos.
             </p>
-            <p>
-              Longe de se limitar à controvérsia, a obra oferece uma exposição sistemática e pastoral da fé ortodoxa, com o objetivo de tornar inteligíveis seus dogmas, práticas e fundamentos teológicos.
-            </p>
-            <p>
-              Escrita para instruir, esclarecer e organizar o conteúdo da fé, a <strong>Confissão</strong> busca situar a tradição ortodoxa de maneira precisa no cenário cristão mais amplo, preservando sua coerência interna e oferecendo ao leitor um acesso direto ao que a Igreja Ortodoxa crê, ensina e confessa.
-            </p>
+
+            <div className="pub-cta-inline">
+              <div className="pub-cta-inline-copy">
+                <span>Um catecismo para a Igreja inteira</span>
+                <p>Escrita para instruir, esclarecer e organizar o conteúdo da fé, a <strong>Confissão</strong> busca situar a tradição ortodoxa de maneira precisa no cenário cristão mais amplo.</p>
+              </div>
+              <a className="button button-primary" href={BOOK_URL} target="_blank" rel="noreferrer">
+                Adquirir por R$ 29,90
+              </a>
+            </div>
 
             <h2>Confiável, autorizada e recebida por todos os patriarcados</h2>
 
@@ -186,16 +206,20 @@ export default function ConfissaoOrtodoxaPage() {
               Após esse processo de avaliação, correção e confirmação, a Confissão foi formalmente recebida como uma exposição fiel e representativa da fé ortodoxa, oferecendo ao leitor não uma interpretação particular, mas o ensinamento que a Igreja reconheceu como conforme à sua doutrina e à sua Tradição. Até mesmo seus maiores críticos e escrutinizadores no século XX alegaram: "a Confissão acabou sendo Ortodoxa de fato, e não apenas no nome." (Karmiris. Op. cit. Σσ., 589).
             </p>
 
+            <div className="pub-mockup-wrap">
+              <Image
+                src="/images/ipad-mockup.webp"
+                alt="A Confissão Ortodoxa no iPad — leitura digital do catecismo"
+                width={800}
+                height={600}
+                className="pub-mockup"
+              />
+            </div>
+
             <h2>Oriental e Ocidental</h2>
 
             <p>
-              A forma e a linguagem adotadas por São Pedro Moguila não foram acidentais.
-            </p>
-            <p>
-              Ao estruturar a Confissão em perguntas e respostas, com definições claras, distinções precisas e vocabulário técnico cuidadosamente escolhido, o Metropolita recorreu ao método catequético então dominante no Ocidente — não por submissão teológica, mas por uma estratégia pastoral e pedagógica.
-            </p>
-            <p>
-              Essa era a linguagem intelectual comum do seu tempo, compreendido tanto por ortodoxos quanto por seus interlocutores protestantes e romanos, e permitia que a fé da Igreja fosse exposta com rigor, clareza e sem ambiguidades.
+              Ao estruturar a Confissão em perguntas e respostas, com definições claras, distinções precisas e vocabulário técnico cuidadosamente escolhido, o Metropolita recorreu ao método catequético então dominante no Ocidente — não por submissão teológica, mas por uma estratégia pastoral e pedagógica. Essa era a linguagem intelectual comum do seu tempo, compreendido tanto por ortodoxos quanto por seus interlocutores protestantes e romanos, e permitia que a fé da Igreja fosse exposta com rigor, clareza e sem ambiguidades.
             </p>
             <p>
               Assim, Moguila utilizou categorias e termos conhecidos para comunicar conteúdos plenamente ortodoxos, apropriando-se da forma para proteger o conteúdo, e demonstrando que a Tradição da Igreja não teme a precisão conceitual quando esta serve à verdade e à instrução dos fiéis.
@@ -204,19 +228,10 @@ export default function ConfissaoOrtodoxaPage() {
             <h2>A versão final e conciliarmente autorizada</h2>
 
             <p>
-              A Confissão foi redigida originalmente em latim por São Pedro Moguila com a colaboração de seus discípulos mais próximos e apresentada ao Concílio de Kiev (1640), onde recebeu correções iniciais.
+              A Confissão foi redigida originalmente em latim por São Pedro Moguila com a colaboração de seus discípulos mais próximos e apresentada ao Concílio de Kiev (1640), onde recebeu correções iniciais. Em seguida, foi submetida ao Concílio de Iași (1642), convocado justamente para examiná-la à luz da fé da Igreja inteira; nesse contexto, o texto passou por uma revisão conduzida principalmente por Melécio Syrigos, atuando como exarca patriarcal.
             </p>
             <p>
-              Em seguida, foi submetida ao Concílio de Iași (1642), convocado justamente para examiná-la à luz da fé da Igreja inteira; nesse contexto, o texto passou por uma revisão conduzida principalmente por Melécio Syrigos, atuando como exarca patriarcal, cujo trabalho teve como objetivo remover ambiguidades e eliminar qualquer formulação que pudesse ser lida como estranha à doutrina ortodoxa.
-            </p>
-            <p>
-              A versão revista foi então traduzida para o grego, examinada e aprovada formalmente pelos Patriarcas de Constantinopla, Alexandria, Antioquia e Jerusalém em 1643, com atos sinodais que atestam sua conformidade dogmática.
-            </p>
-            <p>
-              A partir dessa recepção patriarcal, consolidou-se a chamada "versão grega", que passou a ser considerada normativa, sendo posteriormente publicada em edições bilíngues grego-latinas e traduzida para diversas línguas.
-            </p>
-            <p>
-              A presente edição segue essa tradição textual recebida e autorizada pela Igreja, incorporando as revisões conciliares, a recepção patriarcal e o trabalho filológico posterior, oferecendo ao leitor não um rascunho histórico, mas a forma amadurecida e oficialmente acolhida da Confissão Ortodoxa.
+              A versão revista foi então traduzida para o grego, examinada e aprovada formalmente pelos Patriarcas de Constantinopla, Alexandria, Antioquia e Jerusalém em 1643, com atos sinodais que atestam sua conformidade dogmática. A presente edição segue essa tradição textual recebida e autorizada pela Igreja, oferecendo ao leitor não um rascunho histórico, mas a forma amadurecida e oficialmente acolhida da Confissão Ortodoxa.
             </p>
 
             <p>
@@ -225,42 +240,72 @@ export default function ConfissaoOrtodoxaPage() {
 
             <h2>O que você vai encontrar no livro</h2>
 
-            <h3>Parte I — Da Fé</h3>
-            <p>
-              Exposição sistemática dos dogmas centrais da fé cristã ortodoxa: a Santíssima Trindade, a criação, a encarnação do Verbo, a obra salvífica de Cristo, a Igreja, os sacramentos, os santos ícones, a veneração dos santos e a autoridade da Tradição e das Escrituras.
-            </p>
+            <div className="pub-card-grid">
+              <article className="pub-card">
+                <span className="pub-card-num">I</span>
+                <h3>Parte I — Da Fé</h3>
+                <p>
+                  Exposição sistemática dos dogmas centrais da fé cristã ortodoxa: a Santíssima Trindade, a criação, a encarnação do Verbo, a obra salvífica de Cristo, a Igreja, os sacramentos, os santos ícones, a veneração dos santos e a autoridade da Tradição e das Escrituras.
+                </p>
+              </article>
+              <article className="pub-card">
+                <span className="pub-card-num">II</span>
+                <h3>Parte II — Da Esperança</h3>
+                <p>
+                  Trata da oração, do Pai-Nosso, das bem-aventuranças e da expectativa cristã quanto à ressurreição, ao juízo e à vida futura, articulando a esperança escatológica da Igreja com a vida concreta do fiel.
+                </p>
+              </article>
+              <article className="pub-card">
+                <span className="pub-card-num">III</span>
+                <h3>Parte III — Da Caridade</h3>
+                <p>
+                  Aborda a vida moral cristã à luz dos mandamentos de Deus e da Igreja, o amor ao próximo, o arrependimento, a confissão, as boas obras e a vivência prática da fé como resposta concreta à graça divina.
+                </p>
+              </article>
+            </div>
 
-            <h3>Parte II — Da Esperança</h3>
-            <p>
-              Trata da oração, do Pai-Nosso, das bem-aventuranças e da expectativa cristã quanto à ressurreição, ao juízo e à vida futura, articulando a esperança escatológica da Igreja com a vida concreta do fiel.
-            </p>
-
-            <h3>Parte III — Da Caridade</h3>
-            <p>
-              Aborda a vida moral cristã à luz dos mandamentos de Deus e da Igreja, o amor ao próximo, o arrependimento, a confissão, as boas obras e a vivência prática da fé como resposta concreta à graça divina.
-            </p>
+            <div className="pub-cta-inline">
+              <div className="pub-cta-inline-copy">
+                <span>Fé, Esperança e Caridade em um só volume</span>
+                <p>São as três virtudes teologais que estruturam toda a doutrina ortodoxa. Comece hoje mesmo a sua leitura.</p>
+              </div>
+              <a className="button button-primary" href={BOOK_URL} target="_blank" rel="noreferrer">
+                Adquirir por R$ 29,90
+              </a>
+            </div>
 
             <h2>4 conteúdos bônus incluídos nesta edição</h2>
 
-            <h3>1. Para uma avaliação da teologia de São Pedro Moguila</h3>
-            <p>
-              Texto analítico que reconstrói o contexto histórico, eclesial e intelectual no qual a Confissão foi produzida, explicando as circunstâncias dramáticas enfrentadas pela Ortodoxia após a queda de Constantinopla e demonstrando por que a obra de Moguila se tornou um marco teológico recebido pela Igreja.
-            </p>
-
-            <h3>2. Sobre a questão da influência ocidental na herança teológica do Santo Hierarca Pedro Moguila</h3>
-            <p>
-              Ensaio crítico que examina, com precisão histórica e teológica, as acusações de "latinização" feitas contra Moguila, distinguindo claramente entre empréstimos formais (método, linguagem, estrutura) e fidelidade doutrinária, e mostrando como a Confissão permaneceu plenamente ortodoxa em conteúdo, apesar do uso de categorias compreensíveis no Ocidente.
-            </p>
-
-            <h3>3. Apêndice I — O Pecado Ancestral e o conceito de "culpa"</h3>
-            <p>
-              Análise detalhada da diferença entre o ensinamento ortodoxo sobre o pecado ancestral e as formulações ocidentais de culpa herdada, esclarecendo equívocos comuns e demonstrando o que grandes santos e teólogos Ortodoxos afirmaram sobre este ponto sensível da antropologia teológica.
-            </p>
-
-            <h3>4. Apêndice II — A Transubstanciação</h3>
-            <p>
-              Esclarecimento doutrinário sobre o uso do termo "transubstanciação" no contexto da tradição ortodoxa, analisando sua origem, seu emprego histórico e o modo como foi compreendido por autores e santos anteriores às controvérsias modernas. O texto explica como esse vocabulário foi utilizado para afirmar a real transformação dos Dons Eucarísticos, ao mesmo tempo em que delimita cuidadosamente seu significado, sem pressupor a adoção obrigatória de sistemas filosóficos específicos, permitindo assim uma compreensão mais precisa do ensinamento eucarístico da Igreja Ortodoxa.
-            </p>
+            <div className="pub-card-grid">
+              <article className="pub-card">
+                <span className="pub-card-num">1</span>
+                <h3>Para uma avaliação da teologia de São Pedro Moguila</h3>
+                <p>
+                  Texto analítico que reconstrói o contexto histórico, eclesial e intelectual no qual a Confissão foi produzida, explicando as circunstâncias dramáticas enfrentadas pela Ortodoxia após a queda de Constantinopla e demonstrando por que a obra de Moguila se tornou um marco teológico recebido pela Igreja.
+                </p>
+              </article>
+              <article className="pub-card">
+                <span className="pub-card-num">2</span>
+                <h3>Sobre a influência ocidental na herança teológica de Moguila</h3>
+                <p>
+                  Ensaio crítico que examina, com precisão histórica e teológica, as acusações de "latinização" feitas contra Moguila, distinguindo claramente entre empréstimos formais (método, linguagem, estrutura) e fidelidade doutrinária, e mostrando como a Confissão permaneceu plenamente ortodoxa em conteúdo, apesar do uso de categorias compreensíveis no Ocidente.
+                </p>
+              </article>
+              <article className="pub-card">
+                <span className="pub-card-num">3</span>
+                <h3>Apêndice I — O Pecado Ancestral e o conceito de "culpa"</h3>
+                <p>
+                  Análise detalhada da diferença entre o ensinamento ortodoxo sobre o pecado ancestral e as formulações ocidentais de culpa herdada, esclarecendo equívocos comuns e demonstrando o que grandes santos e teólogos Ortodoxos afirmaram sobre este ponto sensível da antropologia teológica.
+                </p>
+              </article>
+              <article className="pub-card">
+                <span className="pub-card-num">4</span>
+                <h3>Apêndice II — A Transubstanciação</h3>
+                <p>
+                  Esclarecimento doutrinário sobre o uso do termo "transubstanciação" no contexto da tradição ortodoxa, analisando sua origem, seu emprego histórico e o modo como foi compreendido por autores e santos anteriores às controvérsias modernas. O texto explica como esse vocabulário foi utilizado para afirmar a real transformação dos Dons Eucarísticos, sem pressupor a adoção obrigatória de sistemas filosóficos específicos.
+                </p>
+              </article>
+            </div>
 
             <div className="translation-note">
               <span>Tradução da missão</span>
