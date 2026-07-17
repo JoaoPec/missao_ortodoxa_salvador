@@ -264,6 +264,13 @@ export default function ConfissaoOrtodoxaPage() {
                   Aborda a vida moral cristã à luz dos mandamentos de Deus e da Igreja, o amor ao próximo, o arrependimento, a confissão, as boas obras e a vivência prática da fé como resposta concreta à graça divina.
                 </p>
               </article>
+              <article className="pub-card">
+                <span className="pub-card-num">IV</span>
+                <h3>+ 4 Conteúdos Bônus</h3>
+                <p>
+                  Esta edição inclui ensaios complementares sobre a teologia de São Pedro Moguila e apêndices doutrinários sobre o Pecado Ancestral e a Transubstanciação — material extra para quem quer ir além do catecismo.
+                </p>
+              </article>
             </div>
 
             <div className="pub-cta-inline">
