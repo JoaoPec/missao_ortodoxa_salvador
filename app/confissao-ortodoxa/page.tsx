@@ -125,9 +125,6 @@ export default function ConfissaoOrtodoxaPage() {
           <h2>A Confissão Ortodoxa</h2>
           <h3>da Igreja Católica Apostólica Oriental</h3>
           <p className="book-author">São Pedro Moguila</p>
-          <p className="book-price-badge" aria-label="Preço">
-            Edição digital · <strong>R$ 29,90</strong>
-          </p>
           <p>
             O catecismo que resume, em perguntas e respostas, o que a Igreja
             Ortodoxa crê, ensina e confessa — aprovado pelos 4 Patriarcados Orientais.
