@@ -131,6 +131,7 @@ export default function ConfissaoOrtodoxaPage() {
             <span>Aprovado por 4 Patriarcados</span>
             <span>Perguntas e Respostas</span>
             <span>3 Partes + Apêndices</span>
+            <span>4 Conteúdos Bônus</span>
           </div>
           <div className="book-actions">
             <a className="button button-primary" href={BOOK_URL} target="_blank" rel="noreferrer">
@@ -305,6 +306,16 @@ export default function ConfissaoOrtodoxaPage() {
                   Esclarecimento doutrinário sobre o uso do termo "transubstanciação" no contexto da tradição ortodoxa, analisando sua origem, seu emprego histórico e o modo como foi compreendido por autores e santos anteriores às controvérsias modernas. O texto explica como esse vocabulário foi utilizado para afirmar a real transformação dos Dons Eucarísticos, sem pressupor a adoção obrigatória de sistemas filosóficos específicos.
                 </p>
               </article>
+            </div>
+
+            <div className="pub-cta-inline">
+              <div className="pub-cta-inline-copy">
+                <span>4 conteúdos bônus + o catecismo completo</span>
+                <p>Mais de 380 anos de tradição doutrinária — <strong>adquira agora</strong> e comece a aprofundar-se na fé apostólica ainda hoje.</p>
+              </div>
+              <a className="button button-primary" href={BOOK_URL} target="_blank" rel="noreferrer">
+                Adquirir por R$ 29,90
+              </a>
             </div>
 
             <div className="translation-note">

@@ -1841,6 +1841,46 @@ button:focus-visible {
   text-transform: uppercase;
 }
 
+.pub-cta .button-primary {
+  color: var(--paper);
+}
+
+/* -- Sales-page refinements (confissao-ortodoxa) -- */
+
+.pub-body h2 {
+  margin: 2.4em 0 0.4em;
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.book-section {
+  padding: clamp(60px, 10vw, 110px) clamp(22px, 6vw, 96px);
+  gap: clamp(24px, 5vw, 64px);
+}
+
+.trust-strip {
+  padding: clamp(26px, 4vw, 40px) clamp(22px, 6vw, 96px);
+}
+
+.trust-number {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  text-shadow: 0 0 40px rgba(228, 189, 100, 0.25);
+}
+
+.pub-card-grid {
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.pub-card h3 {
+  margin: 0 0 8px;
+  font-size: 0.86rem;
+}
+
 [data-reveal] {
   opacity: 0;
   transform: translateY(32px);
