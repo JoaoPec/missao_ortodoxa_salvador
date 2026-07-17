@@ -5,6 +5,7 @@ import Link from "next/link";
 const SITE_URL = "https://www.ortodoxabahia.com.br";
 const CONTACT_URL = "https://ig.me/m/ortodoxa.salvador";
 const BOOK_URL = "https://pay.hotmart.com/L103598945N?bid=1780150292559";
+const SAMPLE_URL = "https://confissao-ortodoxa.notion.site/in";
 const INSTAGRAM_URL = "https://www.instagram.com/ortodoxa.salvador/";
 
 export const metadata: Metadata = {
@@ -108,38 +109,52 @@ export default function ConfissaoOrtodoxaPage() {
         </nav>
       </header>
 
-      <section className="book-section" id="top">
+      <section className="book-section book-section-sales" id="top">
         <div className="book-media">
           <Image
             src="/images/confissao-kindle.png"
             alt="Kindle exibindo o livro A Confissão Ortodoxa de São Pedro Moguila"
             fill
+            priority
             sizes="(max-width: 900px) 100vw, 56vw"
             className="book-image"
           />
         </div>
         <div className="book-copy">
-          <p className="book-kicker">A doutrina ortodoxa em um só volume</p>
+          <p className="book-kicker">Catecismo digital · Acesso imediato</p>
           <h2>A Confissão Ortodoxa</h2>
           <h3>da Igreja Católica Apostólica Oriental</h3>
           <p className="book-author">São Pedro Moguila</p>
-          <p>
-            Um catecismo de 1640 que ainda hoje serve de passagem para quem
-            quer entender o que a Igreja Ortodoxa crê, ensina e confessa.
+          <p className="book-price-badge" aria-label="Preço">
+            Edição digital · <strong>R$ 29,90</strong>
           </p>
-          <p className="book-trust-line">Tradução oficial da Missão Ortodoxa em Salvador · Revisado por 3 fiéis</p>
+          <p>
+            O catecismo que resume, em perguntas e respostas, o que a Igreja
+            Ortodoxa crê, ensina e confessa — aprovado pelos 4 Patriarcados Orientais.
+          </p>
+          <p className="book-trust-line">
+            Tradução oficial da Missão Ortodoxa em Salvador · Revisado por 3 fiéis
+          </p>
           <div className="book-points" aria-label="Destaques do livro">
-            <span>Aprovado por 4 Patriarcados</span>
-            <span>Perguntas e Respostas</span>
-            <span>3 Partes + Apêndices</span>
-            <span>4 Conteúdos Bônus</span>
+            <span>4 Patriarcados</span>
+            <span>Perguntas e respostas</span>
+            <span>3 Partes</span>
+            <span>4 Bônus</span>
           </div>
           <div className="book-actions">
             <a className="button button-primary" href={BOOK_URL} target="_blank" rel="noreferrer">
               Adquirir por R$ 29,90
             </a>
-            <span className="book-cta-hint">Pagamento único · Comece a ler em 2 minutos no seu celular</span>
+            <a className="button button-text" href={SAMPLE_URL} target="_blank" rel="noreferrer">
+              Ler a apresentação
+            </a>
           </div>
+          <ul className="book-reassurances" aria-label="Garantias da compra">
+            <li>Pagamento único</li>
+            <li>Acesso imediato</li>
+            <li>Kindle, tablet ou celular</li>
+            <li>Compra segura via Hotmart</li>
+          </ul>
         </div>
       </section>
 
@@ -192,20 +207,40 @@ export default function ConfissaoOrtodoxaPage() {
             <div className="pub-cta-inline">
               <div className="pub-cta-inline-copy">
                 <span>Um catecismo para a Igreja inteira</span>
-                <p>Escrita para instruir, esclarecer e organizar o conteúdo da fé, a <strong>Confissão</strong> busca situar a tradição ortodoxa de maneira precisa no cenário cristão mais amplo.</p>
+                <p>
+                  Escrita para instruir, esclarecer e organizar o conteúdo da fé, a{" "}
+                  <strong>Confissão</strong> busca situar a tradição ortodoxa de maneira precisa no cenário cristão mais amplo.
+                </p>
               </div>
               <a className="button button-primary" href={BOOK_URL} target="_blank" rel="noreferrer">
                 Adquirir por R$ 29,90
               </a>
             </div>
 
+            <h2>Para quem é este livro</h2>
+
+            <div className="pub-audience">
+              <article className="pub-audience-item">
+                <h3>Quem está conhecendo a Ortodoxia</h3>
+                <p>Quer um retrato fiel da doutrina — sem polêmica e sem atalhos.</p>
+              </article>
+              <article className="pub-audience-item">
+                <h3>Catecúmenos</h3>
+                <p>Um guia estruturado em perguntas e respostas para a preparação sacramental.</p>
+              </article>
+              <article className="pub-audience-item">
+                <h3>Fiéis e estudantes</h3>
+                <p>Aprofunda a fé apostólica com um texto recebido por toda a Igreja.</p>
+              </article>
+            </div>
+
             <h2>Confiável, autorizada e recebida por todos os patriarcados</h2>
 
             <p>
-              A autoridade desta Confissão não deriva de um autor isolado. O texto foi examinado e aprovado no Concílio de Kiev (1640), posteriormente revisado no Concílio de Iași (1642) e, por fim, submetido ao juízo dos quatro Patriarcados Orientais — Constantinopla, Alexandria, Antioquia e Jerusalém. Concluindo que ela era a confissão de fé "não apenas dos russos, mas... A Confissão Ortodoxa de todos os Gregos".
+              A autoridade desta Confissão não deriva de um autor isolado. O texto foi examinado e aprovado no Concílio de Kiev (1640), posteriormente revisado no Concílio de Iași (1642) e, por fim, submetido ao juízo dos quatro Patriarcados Orientais — Constantinopla, Alexandria, Antioquia e Jerusalém. Concluindo que ela era a confissão de fé &quot;não apenas dos russos, mas... A Confissão Ortodoxa de todos os Gregos&quot;.
             </p>
             <p>
-              Após esse processo de avaliação, correção e confirmação, a Confissão foi formalmente recebida como uma exposição fiel e representativa da fé ortodoxa, oferecendo ao leitor não uma interpretação particular, mas o ensinamento que a Igreja reconheceu como conforme à sua doutrina e à sua Tradição. Até mesmo seus maiores críticos e escrutinizadores no século XX alegaram: "a Confissão acabou sendo Ortodoxa de fato, e não apenas no nome." (Karmiris. Op. cit. Σσ., 589).
+              Após esse processo de avaliação, correção e confirmação, a Confissão foi formalmente recebida como uma exposição fiel e representativa da fé ortodoxa, oferecendo ao leitor não uma interpretação particular, mas o ensinamento que a Igreja reconheceu como conforme à sua doutrina e à sua Tradição. Até mesmo seus maiores críticos e escrutinizadores no século XX alegaram: &quot;a Confissão acabou sendo Ortodoxa de fato, e não apenas no nome.&quot; (Karmiris. Op. cit. Σσ., 589).
             </p>
 
             <div className="pub-mockup-wrap">
@@ -276,7 +311,7 @@ export default function ConfissaoOrtodoxaPage() {
             <div className="pub-cta-inline">
               <div className="pub-cta-inline-copy">
                 <span>Fé, Esperança e Caridade em um só volume</span>
-                <p>São as três virtudes teologais que estruturam toda a doutrina ortodoxa. Comece hoje mesmo a sua leitura.</p>
+                <p>As três virtudes teologais que estruturam a doutrina ortodoxa — agora em português, com leitura imediata.</p>
               </div>
               <a className="button button-primary" href={BOOK_URL} target="_blank" rel="noreferrer">
                 Adquirir por R$ 29,90
@@ -297,12 +332,12 @@ export default function ConfissaoOrtodoxaPage() {
                 <span className="pub-card-num">2</span>
                 <h3>Sobre a influência ocidental na herança teológica de Moguila</h3>
                 <p>
-                  Ensaio crítico que examina, com precisão histórica e teológica, as acusações de "latinização" feitas contra Moguila, distinguindo claramente entre empréstimos formais (método, linguagem, estrutura) e fidelidade doutrinária, e mostrando como a Confissão permaneceu plenamente ortodoxa em conteúdo, apesar do uso de categorias compreensíveis no Ocidente.
+                  Ensaio crítico que examina, com precisão histórica e teológica, as acusações de &quot;latinização&quot; feitas contra Moguila, distinguindo claramente entre empréstimos formais (método, linguagem, estrutura) e fidelidade doutrinária, e mostrando como a Confissão permaneceu plenamente ortodoxa em conteúdo, apesar do uso de categorias compreensíveis no Ocidente.
                 </p>
               </article>
               <article className="pub-card">
                 <span className="pub-card-num">3</span>
-                <h3>Apêndice I — O Pecado Ancestral e o conceito de "culpa"</h3>
+                <h3>Apêndice I — O Pecado Ancestral e o conceito de &quot;culpa&quot;</h3>
                 <p>
                   Análise detalhada da diferença entre o ensinamento ortodoxo sobre o pecado ancestral e as formulações ocidentais de culpa herdada, esclarecendo equívocos comuns e demonstrando o que grandes santos e teólogos Ortodoxos afirmaram sobre este ponto sensível da antropologia teológica.
                 </p>
@@ -311,7 +346,7 @@ export default function ConfissaoOrtodoxaPage() {
                 <span className="pub-card-num">4</span>
                 <h3>Apêndice II — A Transubstanciação</h3>
                 <p>
-                  Esclarecimento doutrinário sobre o uso do termo "transubstanciação" no contexto da tradição ortodoxa, analisando sua origem, seu emprego histórico e o modo como foi compreendido por autores e santos anteriores às controvérsias modernas. O texto explica como esse vocabulário foi utilizado para afirmar a real transformação dos Dons Eucarísticos, sem pressupor a adoção obrigatória de sistemas filosóficos específicos.
+                  Esclarecimento doutrinário sobre o uso do termo &quot;transubstanciação&quot; no contexto da tradição ortodoxa, analisando sua origem, seu emprego histórico e o modo como foi compreendido por autores e santos anteriores às controvérsias modernas. O texto explica como esse vocabulário foi utilizado para afirmar a real transformação dos Dons Eucarísticos, sem pressupor a adoção obrigatória de sistemas filosóficos específicos.
                 </p>
               </article>
             </div>
@@ -319,7 +354,9 @@ export default function ConfissaoOrtodoxaPage() {
             <div className="pub-cta-inline">
               <div className="pub-cta-inline-copy">
                 <span>4 conteúdos bônus + o catecismo completo</span>
-                <p>Mais de 380 anos de tradição doutrinária — <strong>adquira agora</strong> e comece a aprofundar-se na fé apostólica ainda hoje.</p>
+                <p>
+                  Mais de 380 anos de tradição doutrinária — <strong>adquira agora</strong> e comece a aprofundar-se na fé apostólica ainda hoje.
+                </p>
               </div>
               <a className="button button-primary" href={BOOK_URL} target="_blank" rel="noreferrer">
                 Adquirir por R$ 29,90
@@ -337,19 +374,33 @@ export default function ConfissaoOrtodoxaPage() {
           <aside className="pub-cta">
             <p>Garanta o seu exemplar digital</p>
             <h2>A Confissão Ortodoxa de São Pedro Moguila</h2>
+            <p className="pub-cta-price">
+              <strong>R$ 29,90</strong>
+              <span>pagamento único</span>
+            </p>
             <span>
-              Pagamento único de R$ 29,90. Leitura no Kindle, tablet ou celular.
-              Comece hoje mesmo a aprofundar-se na fé apostólica.
+              Acesso imediato. Leitura no Kindle, tablet ou celular.
+              Comece hoje a aprofundar-se na fé apostólica.
             </span>
             <a className="button button-primary" href={BOOK_URL} target="_blank" rel="noreferrer">
               Adquirir por R$ 29,90
             </a>
             <p className="pub-cta-guarantee">
-              <span>Compra segura via Hotmart</span>
+              <span>Compra segura via Hotmart · Acesso vitalício ao arquivo digital</span>
             </p>
           </aside>
         </article>
       </main>
+
+      <div className="book-sticky-bar" aria-label="Compra rápida">
+        <div className="book-sticky-copy">
+          <strong>Confissão Ortodoxa</strong>
+          <span>R$ 29,90 · digital</span>
+        </div>
+        <a className="button button-primary" href={BOOK_URL} target="_blank" rel="noreferrer">
+          Adquirir
+        </a>
+      </div>
 
       <footer className="footer">
         <div className="footer-brand">
