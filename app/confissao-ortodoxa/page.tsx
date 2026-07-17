@@ -127,6 +127,7 @@ export default function ConfissaoOrtodoxaPage() {
             Um catecismo de 1640 que ainda hoje serve de passagem para quem
             quer entender o que a Igreja Ortodoxa crê, ensina e confessa.
           </p>
+          <p className="book-trust-line">Tradução oficial da Missão Ortodoxa em Salvador · Revisado por 3 fiéis</p>
           <div className="book-points" aria-label="Destaques do livro">
             <span>Aprovado por 4 Patriarcados</span>
             <span>Perguntas e Respostas</span>
@@ -137,7 +138,7 @@ export default function ConfissaoOrtodoxaPage() {
             <a className="button button-primary" href={BOOK_URL} target="_blank" rel="noreferrer">
               Adquirir por R$ 29,90
             </a>
-            <span className="book-cta-hint">Pagamento único · Leitura no Kindle, tablet ou celular</span>
+            <span className="book-cta-hint">Pagamento único · Comece a ler em 2 minutos no seu celular</span>
           </div>
         </div>
       </section>

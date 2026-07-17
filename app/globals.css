@@ -1884,6 +1884,14 @@ button:focus-visible {
   border-color: rgba(28, 8, 5, 0.25);
 }
 
+.book-trust-line {
+  margin: 22px 0 0;
+  color: rgba(251, 246, 236, 0.55);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
 [data-reveal] {
   opacity: 0;
   transform: translateY(32px);
