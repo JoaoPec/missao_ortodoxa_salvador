@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Missão Ortodoxa em Salvador
 
-## Getting Started
+Site da [Missão Ortodoxa Grega em Salvador](https://www.ortodoxabahia.com.br) + **sistema de presença nas catequeses**.
 
-First, run the development server:
+## Sistema de presença
+
+O padre cria uma catequese, o sistema gera um link de presença, e os catecúmenos confirmam pelo e-mail. Quem não está na lista é cadastrado na hora (nome + telefone). Relatórios por catequese e de presença geral, com exportação em CSV.
+
+**Rotas:**
+- `/presenca/[slug]` — página pública de confirmação (o link que o padre divulga)
+- `/admin` — área do padre: criar catequese, ver presenças, relatórios
+- `/admin/pessoas` — lista de catecúmenos + importar CSV do Notion
+
+**Regras de negócio:**
+- A chave de cada pessoa é o **e-mail** (case-insensitive).
+- No import do CSV do Notion, quem já existe é atualizado; novidades são cadastradas. Quem não tem e-mail é casado pelo nome.
+- Quem confirma com e-mail fora da lista é cadastrado automaticamente (marcado como "auto").
+
+### Variáveis de ambiente
+
+| Variável | Descrição |
+| --- | --- |
+| `DATABASE_PATH` | Caminho do banco SQLite. Em produção, aponte para o volume (ex: `/data/presenca.db`). |
+| `ADMIN_PASSWORD` | Senha da área `/admin`. |
+
+### Desenvolvimento
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+O banco fica em `data/presenca.db` (ignorado pelo git). Sem `ADMIN_PASSWORD` em dev, a senha é `admin123`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Deploy no Railway
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Conecte o repositório ao Railway (crie um serviço a partir do repo — `railway.json` já define o build/start).
+2. Crie um **Volume** de 1 GB montado em `/data`.
+3. Configure as variáveis: `DATABASE_PATH=/data/presenca.db` e `ADMIN_PASSWORD=<senha forte>`.
+4. Após o deploy, acesse `/admin`, entre com a senha e importe a lista de catecúmenos (exporte o CSV do Notion e cole em *Catecúmenos → Importar*).
+5. Aponte o domínio (`ortodoxabahia.com.br` ou subdomínio) para o serviço no Railway.

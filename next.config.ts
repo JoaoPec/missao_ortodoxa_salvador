@@ -2,6 +2,13 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   devIndicators: false,
+  // Evita que o Turbopack infira o workspace root errado (havia um package-lock.json
+  // órfão na home do usuário, o que causava OOM no dev).
+  turbopack: {
+    root: process.cwd(),
+  },
+  // Módulo nativo: fica como require externo em runtime (não vai pro bundle).
+  serverExternalPackages: ["better-sqlite3"],
   // Permite que o Google Fonts carregue via CSS @import
   // (já tratado no globals.css)
   async headers() {
