@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -7,41 +8,29 @@ export default function AdminNav() {
   const pathname = usePathname();
   const router = useRouter();
 
-  const link = (href: string, rotulo: string) => (
-    <Link
-      href={href}
-      className={`rounded-lg px-3 py-1.5 text-sm font-semibold transition ${
-        pathname === href
-          ? "bg-white/15 text-white"
-          : "text-white/70 hover:bg-white/10 hover:text-white"
-      }`}
-    >
-      {rotulo}
-    </Link>
-  );
-
   return (
-    <header style={{ background: "var(--ink)" }}>
-      <div className="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3">
-        <div className="flex items-center gap-3">
-          <span
-            className="text-sm font-bold tracking-wide text-white"
-            style={{ fontFamily: '"Cinzel", serif' }}
-          >
-            Presença
-          </span>
-          <nav className="flex items-center gap-1">
-            {link("/admin", "Catequeses")}
-            {link("/admin/pessoas", "Catecúmenos")}
-          </nav>
-        </div>
+    <header className="admin-nav">
+      <Link href="/admin" className="admin-nav-brand" aria-label="Painel de presença">
+        <Image src="/images/selo-patriarcado.png" alt="" width={36} height={36} className="seal" />
+        <strong>Presença</strong>
+      </Link>
+      <div className="admin-nav-side">
+        <nav className="admin-nav-links" aria-label="Navegação do painel">
+          <Link href="/admin" className={pathname === "/admin" ? "is-active" : ""}>
+            Catequeses
+          </Link>
+          <Link href="/admin/pessoas" className={pathname === "/admin/pessoas" ? "is-active" : ""}>
+            Catecúmenos
+          </Link>
+        </nav>
         <button
+          type="button"
+          className="admin-nav-logout"
           onClick={async () => {
             await fetch("/api/admin/logout", { method: "POST" });
             router.push("/admin/login");
             router.refresh();
           }}
-          className="rounded-lg px-3 py-1.5 text-sm font-semibold text-white/70 transition hover:bg-white/10 hover:text-white"
         >
           Sair
         </button>

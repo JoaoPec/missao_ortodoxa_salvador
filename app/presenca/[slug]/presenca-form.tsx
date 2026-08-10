@@ -66,33 +66,26 @@ export default function PresencaForm({
 
   if (estado === "feito") {
     return (
-      <div className="text-center">
-        <div
-          className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full"
-          style={{ background: "var(--paper-2)", color: "var(--crimson)" }}
-        >
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="h-8 w-8">
+      <div className="presenca-success">
+        <div className="presenca-success-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" className="h-8 w-8">
             <path d="M5 13l4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
         </div>
-        <h2 className="mb-2 text-2xl font-bold" style={{ fontFamily: '"Cinzel", serif' }}>
-          Presença confirmada!
-        </h2>
-        <p className="text-[var(--muted)]">
+        <h2>Presença confirmada!</h2>
+        <p>
           {nomeConfirmado ? `${nomeConfirmado}, sua presença` : "Sua presença"} em{" "}
-          <strong className="text-[var(--ink)]">{titulo}</strong> foi registrada.
+          <strong>{titulo}</strong> foi registrada.
         </p>
-        <p className="mt-4 text-sm text-[var(--muted)]">Nos vemos na catequese! ☦️</p>
+        <small>Nos vemos na catequese. ☦️</small>
       </div>
     );
   }
 
   return (
-    <form onSubmit={estado === "email" ? confirmarEmail : confirmarNome} className="space-y-4">
-      <div>
-        <label htmlFor="email" className="mb-1.5 block text-sm font-semibold text-[var(--ink)]">
-          Seu e-mail
-        </label>
+    <form onSubmit={estado === "email" ? confirmarEmail : confirmarNome}>
+      <div className="presenca-field">
+        <label htmlFor="email">Seu e-mail</label>
         <input
           id="email"
           type="email"
@@ -102,20 +95,17 @@ export default function PresencaForm({
           onChange={(e) => setEmail(e.target.value)}
           placeholder="voce@email.com"
           disabled={estado === "nome"}
-          className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition focus:border-[var(--crimson)] focus:ring-2 focus:ring-[var(--crimson)]/20 disabled:opacity-60"
         />
       </div>
 
       {estado === "nome" && (
         <>
-          <div className="rounded-lg px-4 py-3 text-sm" style={{ background: "var(--paper-2)" }}>
+          <p className="presenca-note">
             Seu e-mail ainda não está na lista de catecúmenos. Diga seu nome para
             ficar cadastrado e confirmar sua presença.
-          </div>
-          <div>
-            <label htmlFor="nome" className="mb-1.5 block text-sm font-semibold text-[var(--ink)]">
-              Nome completo
-            </label>
+          </p>
+          <div className="presenca-field">
+            <label htmlFor="nome">Nome completo</label>
             <input
               id="nome"
               type="text"
@@ -124,13 +114,10 @@ export default function PresencaForm({
               value={nome}
               onChange={(e) => setNome(e.target.value)}
               placeholder="Seu nome e sobrenome"
-              className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition focus:border-[var(--crimson)] focus:ring-2 focus:ring-[var(--crimson)]/20"
             />
           </div>
-          <div>
-            <label htmlFor="telefone" className="mb-1.5 block text-sm font-semibold text-[var(--ink)]">
-              Telefone (opcional)
-            </label>
+          <div className="presenca-field">
+            <label htmlFor="telefone">Telefone (opcional)</label>
             <input
               id="telefone"
               type="tel"
@@ -138,23 +125,17 @@ export default function PresencaForm({
               value={telefone}
               onChange={(e) => setTelefone(e.target.value)}
               placeholder="(71) 99999-9999"
-              className="w-full rounded-lg border border-[var(--line)] bg-white px-4 py-3 text-[var(--ink)] outline-none transition focus:border-[var(--crimson)] focus:ring-2 focus:ring-[var(--crimson)]/20"
             />
           </div>
         </>
       )}
 
-      {erro && (
-        <p className="rounded-lg px-4 py-2.5 text-sm font-medium" style={{ background: "rgba(147,20,14,0.08)", color: "var(--crimson)" }}>
-          {erro}
-        </p>
-      )}
+      {erro && <p className="presenca-error">{erro}</p>}
 
       <button
         type="submit"
         disabled={carregando}
-        className="w-full rounded-lg px-6 py-3.5 font-bold text-white transition hover:brightness-110 disabled:opacity-60"
-        style={{ background: "var(--crimson)" }}
+        className="button button-primary presenca-submit"
       >
         {carregando
           ? "Confirmando..."

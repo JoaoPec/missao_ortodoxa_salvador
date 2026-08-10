@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { redirect } from "next/navigation";
 import { verificarSessao } from "@/lib/auth";
 import LoginForm from "./login-form";
@@ -15,23 +16,25 @@ export default async function LoginPage() {
     redirect("/admin");
   }
   return (
-    <main
-      className="flex min-h-screen items-center justify-center px-4"
-      style={{ background: "var(--paper)" }}
-    >
-      <div
-        className="w-full max-w-sm rounded-2xl border border-[var(--line)] p-8 shadow-lg"
-        style={{ background: "var(--plaster)" }}
-      >
-        <h1
-          className="mb-1 text-center text-2xl font-bold text-[var(--ink)]"
-          style={{ fontFamily: '"Cinzel", serif' }}
-        >
-          Presença
-        </h1>
-        <p className="mb-6 text-center text-sm text-[var(--muted)]">
-          Área do padre — catequeses e relatórios
-        </p>
+    <main className="admin-login-wrap">
+      <Image
+        src="/images/brasao-patriarcado.webp"
+        alt=""
+        width={560}
+        height={560}
+        className="admin-login-crest"
+        aria-hidden="true"
+      />
+      <div className="admin-login-card">
+        <Image
+          src="/images/selo-patriarcado.png"
+          alt=""
+          width={54}
+          height={54}
+          className="seal"
+        />
+        <h1 className="admin-login-title">Presença</h1>
+        <p className="admin-login-sub">Área do padre — catequeses e relatórios</p>
         <LoginForm />
       </div>
     </main>

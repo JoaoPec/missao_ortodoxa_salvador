@@ -20,52 +20,50 @@ export default async function PaginaCatecumenos() {
   const pessoas = listarPessoas();
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--paper)" }}>
+    <div className="admin-shell">
       <AdminNav />
-      <main className="mx-auto max-w-5xl space-y-8 px-4 py-8">
-        <div>
-          <h1 className="text-2xl font-bold text-[var(--ink)]" style={{ fontFamily: '"Cinzel", serif' }}>
-            Catecúmenos
-          </h1>
-          <p className="text-sm text-[var(--muted)]">
-            {pessoas.length} cadastrados. A chave de cada pessoa é o e-mail.
-          </p>
+      <main className="admin-main">
+        <div className="admin-head">
+          <div>
+            <p className="admin-overline">Cadastro</p>
+            <h1 className="admin-title">Catecúmenos</h1>
+            <p className="admin-sub">
+              {pessoas.length} cadastrados. A chave de cada pessoa é o e-mail.
+            </p>
+          </div>
         </div>
 
         <ImportPessoas />
 
-        <section className="rounded-2xl border border-[var(--line)] p-6" style={{ background: "var(--plaster)" }}>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
+        <section className="admin-card admin-section" style={{ marginTop: 26 }}>
+          <div className="admin-table-wrap">
+            <table className="admin-table">
               <thead>
-                <tr className="text-xs uppercase tracking-wide text-[var(--muted)]">
-                  <th className="pb-2 pr-4 font-semibold">Nome</th>
-                  <th className="pb-2 pr-4 font-semibold">E-mail</th>
-                  <th className="pb-2 pr-4 font-semibold">Telefone</th>
-                  <th className="pb-2 pr-4 font-semibold">Cidade</th>
-                  <th className="pb-2 pr-4 font-semibold">Status</th>
-                  <th className="pb-2 text-right font-semibold">Presenças</th>
+                <tr>
+                  <th>Nome</th>
+                  <th>E-mail</th>
+                  <th>Telefone</th>
+                  <th>Cidade</th>
+                  <th>Status</th>
+                  <th className="num">Presenças</th>
                 </tr>
               </thead>
               <tbody>
                 {pessoas.map((p) => (
-                  <tr key={p.id} className="border-t" style={{ borderColor: "var(--line)" }}>
-                    <td className="py-2 pr-4 font-medium text-[var(--ink)]">
+                  <tr key={p.id}>
+                    <td>
                       {p.nome}
                       {p.origem === "auto" && (
-                        <span
-                          className="ml-2 rounded-full px-2 py-0.5 text-[10px] font-bold uppercase"
-                          style={{ background: "var(--paper-2)", color: "var(--muted)" }}
-                        >
+                        <span className="admin-tag" style={{ marginLeft: 8 }}>
                           auto
                         </span>
                       )}
                     </td>
-                    <td className="py-2 pr-4 text-[var(--muted)]">{p.email || "—"}</td>
-                    <td className="py-2 pr-4 text-[var(--muted)]">{p.telefone || "—"}</td>
-                    <td className="py-2 pr-4 text-[var(--muted)]">{p.cidade || "—"}</td>
-                    <td className="py-2 pr-4 text-[var(--muted)]">{p.status || "—"}</td>
-                    <td className="py-2 text-right font-bold text-[var(--crimson)]">{p.presencas}</td>
+                    <td>{p.email || "—"}</td>
+                    <td>{p.telefone || "—"}</td>
+                    <td>{p.cidade || "—"}</td>
+                    <td>{p.status || "—"}</td>
+                    <td className="num">{p.presencas}</td>
                   </tr>
                 ))}
               </tbody>

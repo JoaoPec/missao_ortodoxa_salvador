@@ -14,15 +14,10 @@ export default function CopiarLink({ url, rotulo = "Copiar link" }: { url: strin
           setCopiado(true);
           setTimeout(() => setCopiado(false), 2000);
         } catch {
-          // Clipboard indisponível (http, permissão): mostra o link selecionável.
           window.prompt("Copie o link:", url);
         }
       }}
-      className="rounded-lg px-3 py-2 text-xs font-bold transition"
-      style={{
-        background: copiado ? "rgba(20,120,60,0.12)" : "var(--paper-2)",
-        color: copiado ? "#14783c" : "var(--ink)",
-      }}
+      className={`admin-btn ${copiado ? "admin-btn-copied" : "admin-btn-soft"}`}
     >
       {copiado ? "✓ Copiado!" : rotulo}
     </button>

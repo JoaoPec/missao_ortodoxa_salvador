@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { buscarCatequesePorSlug } from "@/lib/data";
 import PresencaForm from "./presenca-form";
@@ -20,17 +21,6 @@ export async function generateMetadata({
   };
 }
 
-function CruzOrtodoxa() {
-  return (
-    <svg viewBox="0 0 48 72" className="mx-auto mb-6 h-12 w-8" aria-hidden="true">
-      <path
-        d="M21 3h6v14h13v5H27v11h18v6H27v22l10-7 4 5-17 11L7 59l4-5 10 7V39H3v-6h18V22H8v-5h13V3Z"
-        fill="var(--crimson)"
-      />
-    </svg>
-  );
-}
-
 export default async function PaginaPresenca({
   params,
 }: {
@@ -50,34 +40,45 @@ export default async function PaginaPresenca({
     : null;
 
   return (
-    <main
-      className="flex min-h-screen items-center justify-center px-4 py-12"
-      style={{ background: "var(--paper)" }}
-    >
-      <div
-        className="w-full max-w-md rounded-2xl border border-[var(--line)] p-8 shadow-lg"
-        style={{ background: "var(--plaster)" }}
-      >
-        <CruzOrtodoxa />
-        <p className="text-center text-xs font-bold uppercase tracking-[0.2em] text-[var(--muted)]">
-          Catequese
-        </p>
-        <h1
-          className="mb-2 mt-2 text-center text-2xl font-bold text-[var(--ink)] sm:text-3xl"
-          style={{ fontFamily: '"Cinzel", serif' }}
-        >
-          {catequese.titulo}
-        </h1>
-        {catequese.assunto && (
-          <p className="mb-4 text-center text-[var(--muted)]">{catequese.assunto}</p>
-        )}
-        {dataFormatada && (
-          <p className="mb-6 text-center text-sm font-medium capitalize text-[var(--crimson)]">
-            {dataFormatada}
-          </p>
-        )}
-        <div className="mb-6 h-px" style={{ background: "var(--line)" }} />
-        <PresencaForm slug={slug} titulo={catequese.titulo} />
+    <main className="presenca-page">
+      <div className="presenca-bg" aria-hidden="true">
+        <Image
+          src="/images/orthodox-hero.png"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+        />
+      </div>
+      <div className="presenca-shade" aria-hidden="true" />
+
+      <div className="presenca-inner">
+        <div className="presenca-brand">
+          <Image
+            src="/images/selo-patriarcado.png"
+            alt=""
+            width={44}
+            height={44}
+            className="seal"
+          />
+          <span className="presenca-brand-text">
+            <strong>Missão Ortodoxa Grega</strong>
+            <small>em Salvador</small>
+          </span>
+        </div>
+
+        <div className="presenca-card">
+          <p className="presenca-overline">Catequese</p>
+          <h1 className="presenca-title">{catequese.titulo}</h1>
+          {catequese.assunto && (
+            <p className="presenca-sub">{catequese.assunto}</p>
+          )}
+          {dataFormatada && (
+            <p className="presenca-date">{dataFormatada}</p>
+          )}
+          <div className="presenca-divider" />
+          <PresencaForm slug={slug} titulo={catequese.titulo} />
+        </div>
       </div>
     </main>
   );
