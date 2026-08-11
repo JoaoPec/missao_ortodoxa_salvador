@@ -7,8 +7,6 @@ const nextConfig: NextConfig = {
   turbopack: {
     root: process.cwd(),
   },
-  // Módulo nativo: fica como require externo em runtime (não vai pro bundle).
-  serverExternalPackages: ["better-sqlite3"],
   // Permite que o Google Fonts carregue via CSS @import
   // (já tratado no globals.css)
   async headers() {

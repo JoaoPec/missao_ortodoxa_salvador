@@ -1,7 +1,9 @@
-import Database from "better-sqlite3";
+import { DatabaseSync } from "node:sqlite";
 import fs from "node:fs";
 import path from "node:path";
 
+// SQLite nativo do Node (node:sqlite) — sem módulo nativo de terceiros,
+// sem node-gyp/prebuilt, funciona em qualquer Node >= 22.
 // Em produção (Railway) aponte DATABASE_PATH para o volume (ex: /data/presenca.db).
 // Em dev, o banco fica em data/presenca.db (pasta ignorada pelo git).
 const DB_PATH =
@@ -39,14 +41,14 @@ CREATE TABLE IF NOT EXISTS presencas (
 CREATE INDEX IF NOT EXISTS idx_presencas_pessoa ON presencas(pessoa_id);
 `;
 
-let db: Database.Database | null = null;
+let db: DatabaseSync | null = null;
 
-export function getDb(): Database.Database {
+export function getDb(): DatabaseSync {
   if (!db) {
     fs.mkdirSync(path.dirname(DB_PATH), { recursive: true });
-    db = new Database(DB_PATH);
-    db.pragma("journal_mode = WAL");
-    db.pragma("foreign_keys = ON");
+    db = new DatabaseSync(DB_PATH);
+    db.exec("PRAGMA journal_mode = WAL");
+    db.exec("PRAGMA foreign_keys = ON");
     db.exec(SCHEMA);
   }
   return db;

@@ -37,8 +37,7 @@ export function buscarPessoaPorEmail(email: string): Pessoa | undefined {
   const e = normalizarEmail(email);
   if (!e) return undefined;
   return getDb().prepare("SELECT * FROM pessoas WHERE email = ?").get(e) as
-    | Pessoa
-    | undefined;
+    unknown as Pessoa | undefined;
 }
 
 export function criarPessoa(dados: {
@@ -67,11 +66,11 @@ export function listarPessoas(): (Pessoa & { presencas: number })[] {
       `SELECT pe.*, (SELECT COUNT(*) FROM presencas pr WHERE pr.pessoa_id = pe.id) AS presencas
        FROM pessoas pe ORDER BY pe.nome`
     )
-    .all() as (Pessoa & { presencas: number })[];
+    .all() as unknown as (Pessoa & { presencas: number })[];
 }
 
 export function totalCadastrados(): number {
-  return (getDb().prepare("SELECT COUNT(*) AS c FROM pessoas").get() as { c: number }).c;
+  return (getDb().prepare("SELECT COUNT(*) AS c FROM pessoas").get() as unknown as { c: number }).c;
 }
 
 export function importarPessoas(textoCsv: string): {
@@ -90,19 +89,21 @@ export function importarPessoas(textoCsv: string): {
     "UPDATE pessoas SET nome = ?, telefone = ?, cidade = ?, status = ? WHERE id = ?"
   );
 
-  const tx = db.transaction((lista: PessoaCsv[]) => {
-    let inseridas = 0;
-    let atualizadas = 0;
-    for (const p of lista) {
+  // node:sqlite não traz db.transaction(); usamos BEGIN/COMMIT manual.
+  db.exec("BEGIN");
+  let inseridas = 0;
+  let atualizadas = 0;
+  try {
+    for (const p of pessoas) {
       const nome = normalizarNome(p.nome);
       if (!nome) continue;
       const email = normalizarEmail(p.email);
       let id: number | undefined;
       if (email) {
-        const linha = porEmail.get(email) as { id: number } | undefined;
+        const linha = porEmail.get(email) as unknown as { id: number } | undefined;
         id = linha?.id;
       } else {
-        const linha = porNome.get(nome) as { id: number } | undefined;
+        const linha = porNome.get(nome) as unknown as { id: number } | undefined;
         id = linha?.id;
       }
       if (id) {
@@ -113,11 +114,13 @@ export function importarPessoas(textoCsv: string): {
         inseridas++;
       }
     }
-    return { inseridas, atualizadas };
-  });
+    db.exec("COMMIT");
+  } catch (e) {
+    db.exec("ROLLBACK");
+    throw e;
+  }
 
-  const resultado = tx(pessoas);
-  return { ...resultado, total: totalCadastrados() };
+  return { inseridas, atualizadas, total: totalCadastrados() };
 }
 
 // ---------------- Catequeses ----------------
@@ -137,14 +140,12 @@ export function criarCatequese(dados: {
 
 export function buscarCatequese(id: number): Catequese | undefined {
   return getDb().prepare("SELECT * FROM catequeses WHERE id = ?").get(id) as
-    | Catequese
-    | undefined;
+    unknown as Catequese | undefined;
 }
 
 export function buscarCatequesePorSlug(slug: string): Catequese | undefined {
   return getDb().prepare("SELECT * FROM catequeses WHERE slug = ?").get(slug) as
-    | Catequese
-    | undefined;
+    unknown as Catequese | undefined;
 }
 
 export function listarCatequeses(): (Catequese & { confirmados: number })[] {
@@ -154,7 +155,7 @@ export function listarCatequeses(): (Catequese & { confirmados: number })[] {
        FROM catequeses c LEFT JOIN presencas p ON p.catequese_id = c.id
        GROUP BY c.id ORDER BY c.criado_em DESC`
     )
-    .all() as (Catequese & { confirmados: number })[];
+    .all() as unknown as (Catequese & { confirmados: number })[];
 }
 
 export function excluirCatequese(id: number): void {
@@ -182,7 +183,7 @@ export function presencasDaCatequese(
        JOIN pessoas pe ON pe.id = pr.pessoa_id
        WHERE pr.catequese_id = ? ORDER BY pr.confirmado_em`
     )
-    .all(catequeseId) as (Pessoa & { confirmado_em: string })[];
+    .all(catequeseId) as unknown as (Pessoa & { confirmado_em: string })[];
 }
 
 export function faltantesDaCatequese(catequeseId: number): Pessoa[] {
@@ -192,7 +193,7 @@ export function faltantesDaCatequese(catequeseId: number): Pessoa[] {
        WHERE pe.id NOT IN (SELECT pessoa_id FROM presencas WHERE catequese_id = ?)
        ORDER BY pe.nome`
     )
-    .all(catequeseId) as Pessoa[];
+    .all(catequeseId) as unknown as Pessoa[];
 }
 
 // ---------------- Relatórios ----------------
@@ -200,15 +201,15 @@ export function faltantesDaCatequese(catequeseId: number): Pessoa[] {
 export function resumoGeral() {
   const db = getDb();
   const totalPessoas = totalCadastrados();
-  const totalCatequeses = (db.prepare("SELECT COUNT(*) AS c FROM catequeses").get() as { c: number }).c;
-  const totalPresencas = (db.prepare("SELECT COUNT(*) AS c FROM presencas").get() as { c: number }).c;
+  const totalCatequeses = (db.prepare("SELECT COUNT(*) AS c FROM catequeses").get() as unknown as { c: number }).c;
+  const totalPresencas = (db.prepare("SELECT COUNT(*) AS c FROM presencas").get() as unknown as { c: number }).c;
   const presencasPorPessoa = db
     .prepare(
       `SELECT pe.nome, pe.email, pe.origem, COUNT(pr.pessoa_id) AS presencas
        FROM pessoas pe LEFT JOIN presencas pr ON pr.pessoa_id = pe.id
        GROUP BY pe.id ORDER BY presencas DESC, pe.nome`
     )
-    .all() as { nome: string; email: string | null; origem: string; presencas: number }[];
+    .all() as unknown as { nome: string; email: string | null; origem: string; presencas: number }[];
   return {
     totalPessoas,
     totalCatequeses,
