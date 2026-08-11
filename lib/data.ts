@@ -1,6 +1,6 @@
 import crypto from "node:crypto";
 import { getDb } from "./db";
-import { parsePessoasCsv, type PessoaCsv } from "./csv";
+import { parsePessoasCsv } from "./csv";
 
 export interface Catequese {
   id: number;

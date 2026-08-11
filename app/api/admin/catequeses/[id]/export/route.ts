@@ -85,8 +85,6 @@ export async function GET(_req: Request, { params }: Ctx) {
   });
   headerRow.height = 26;
 
-  const fmt = (v: string | null | undefined) => (v || "—");
-
   const linhaPresenca = (
     p: Pessoa & { confirmado_em?: string },
     presente: boolean
@@ -141,7 +139,7 @@ export async function GET(_req: Request, { params }: Ctx) {
           fill?: { type?: string; fgColor?: { argb?: string } };
         };
         if (!c.fill || c.fill.type !== "pattern" || !c.fill.fgColor) {
-          (cell as any).fill = {
+          cell.fill = {
             type: "pattern",
             pattern: "solid",
             fgColor: { argb: PLASTER },
