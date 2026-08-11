@@ -27,10 +27,20 @@ export async function POST(req: Request) {
     return NextResponse.json({ erro: "Informe o título da catequese." }, { status: 400 });
   }
 
+  const assunto = (body.assunto ?? "").trim();
+  if (!assunto) {
+    return NextResponse.json({ erro: "Informe o assunto da catequese." }, { status: 400 });
+  }
+
+  const data = (body.data ?? "").trim();
+  if (!data || !/^\d{4}-\d{2}-\d{2}$/.test(data)) {
+    return NextResponse.json({ erro: "Informe a data da catequese." }, { status: 400 });
+  }
+
   const catequese = criarCatequese({
     titulo,
-    assunto: body.assunto,
-    data: body.data,
+    assunto,
+    data,
   });
   return NextResponse.json({ catequese }, { status: 201 });
 }

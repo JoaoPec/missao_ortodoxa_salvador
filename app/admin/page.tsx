@@ -57,9 +57,29 @@ export default async function AdminDashboard() {
             Catequeses criadas
           </h2>
           {r.catequeses.length === 0 ? (
-            <p className="admin-empty">
-              Nenhuma catequese ainda. Crie a primeira acima.
-            </p>
+            <div className="admin-card">
+              <h2 className="admin-card-title">Como funciona</h2>
+              <p className="admin-sub" style={{ marginTop: -14, marginBottom: 0 }}>
+                São só três passos. Em minutos você tem o link pronto para enviar:
+              </p>
+              <div className="admin-steps">
+                <div className="admin-step">
+                  <span className="admin-step-num">1</span>
+                  <h3>Crie a catequese</h3>
+                  <p>Preencha o título, o assunto e a data (a data já vem com o dia de hoje).</p>
+                </div>
+                <div className="admin-step">
+                  <span className="admin-step-num">2</span>
+                  <h3>Envie o link</h3>
+                  <p>Copie o link gerado e mande para os catecúmenos no WhatsApp ou e-mail.</p>
+                </div>
+                <div className="admin-step">
+                  <span className="admin-step-num">3</span>
+                  <h3>Acompanhe as presenças</h3>
+                  <p>Veja quem confirmou, quem faltou e baixe a lista em Excel.</p>
+                </div>
+              </div>
+            </div>
           ) : (
             <div>
               {r.catequeses.map((c) => {
@@ -81,7 +101,7 @@ export default async function AdminDashboard() {
                       <div className="admin-catequese-actions">
                         <CopiarLink url={url} />
                         <Link href={`/admin/catequese/${c.id}`} className="admin-btn admin-btn-primary">
-                          Ver detalhe
+                          Ver presenças
                         </Link>
                       </div>
                     </div>
@@ -104,6 +124,10 @@ export default async function AdminDashboard() {
         {r.presencasPorPessoa.length > 0 && (
           <section className="admin-card admin-section" style={{ marginTop: 26 }}>
             <h2 className="admin-card-title">Presença geral dos catecúmenos</h2>
+            <p className="admin-sub" style={{ marginTop: -14, marginBottom: 20 }}>
+              Frequência = presenças ÷ {r.totalCatequeses}{" "}
+              {r.totalCatequeses === 1 ? "catequese" : "catequeses"} realizadas.
+            </p>
             <div className="admin-table-wrap">
               <table className="admin-table">
                 <thead>
@@ -111,23 +135,38 @@ export default async function AdminDashboard() {
                     <th>Nome</th>
                     <th>E-mail</th>
                     <th className="num">Presenças</th>
+                    <th style={{ minWidth: 180 }}>Frequência</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {r.presencasPorPessoa.map((p) => (
-                    <tr key={p.email ?? p.nome}>
-                      <td>
-                        {p.nome}
-                        {p.origem === "auto" && (
-                          <span className="admin-tag" style={{ marginLeft: 8 }}>
-                            auto
-                          </span>
-                        )}
-                      </td>
-                      <td>{p.email || "—"}</td>
-                      <td className="num">{p.presencas}</td>
-                    </tr>
-                  ))}
+                  {r.presencasPorPessoa.map((p) => {
+                    const freq =
+                      r.totalCatequeses > 0
+                        ? Math.round((p.presencas / r.totalCatequeses) * 100)
+                        : 0;
+                    return (
+                      <tr key={p.email ?? p.nome}>
+                        <td>
+                          {p.nome}
+                          {p.origem === "auto" && (
+                            <span className="admin-tag" style={{ marginLeft: 8 }}>
+                              auto
+                            </span>
+                          )}
+                        </td>
+                        <td>{p.email || "—"}</td>
+                        <td className="num">{p.presencas}</td>
+                        <td>
+                          <div className="admin-progress-label" style={{ marginTop: 0 }}>
+                            <span>{freq}%</span>
+                          </div>
+                          <div className="admin-progress" style={{ marginTop: 4 }}>
+                            <i style={{ width: `${freq}%` }} />
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>

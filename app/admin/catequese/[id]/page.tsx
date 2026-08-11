@@ -3,8 +3,11 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import { verificarSessao } from "@/lib/auth";
 import { buscarCatequese, presencasDaCatequese, faltantesDaCatequese } from "@/lib/data";
+import { urlBase } from "@/lib/url";
 import AdminNav from "../../admin-nav";
+import CopiarLink from "../../copiar-link";
 import ExcluirCatequese from "./excluir";
+import PresencasView from "./presencas-view";
 
 export const dynamic = "force-dynamic";
 
@@ -24,6 +27,9 @@ export default async function DetalheCatequese({
   const { id } = await params;
   const catequese = buscarCatequese(Number(id));
   if (!catequese) notFound();
+
+  const base = await urlBase();
+  const urlPresenca = `${base}/presenca/${catequese.slug}`;
 
   const confirmados = presencasDaCatequese(catequese.id);
   const faltantes = faltantesDaCatequese(catequese.id);
@@ -58,9 +64,21 @@ export default async function DetalheCatequese({
               href={`/api/admin/catequeses/${catequese.id}/export`}
               className="admin-btn admin-btn-gold"
             >
-              ⬇ Exportar CSV
+              ⬇ Exportar Excel
             </a>
             <ExcluirCatequese id={catequese.id} titulo={catequese.titulo} />
+          </div>
+        </div>
+
+        <div className="admin-card" style={{ marginBottom: 26 }}>
+          <p className="admin-sub" style={{ margin: 0, marginBottom: 10 }}>
+            Link desta catequese (envie aos catecúmenos):
+          </p>
+          <div className="admin-catequese-actions">
+            <code className="admin-catequese-link" style={{ flex: 1, margin: 0 }}>
+              {urlPresenca}
+            </code>
+            <CopiarLink url={urlPresenca} />
           </div>
         </div>
 
@@ -79,78 +97,10 @@ export default async function DetalheCatequese({
           </div>
         </div>
 
-        {confirmados.length > 0 && (
-          <section className="admin-card">
-            <h2 className="admin-card-title">Confirmaram presença</h2>
-            <div className="admin-table-wrap">
-              <table className="admin-table">
-                <thead>
-                  <tr>
-                    <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Telefone</th>
-                    <th>Quando</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {confirmados.map((p) => (
-                    <tr key={p.id}>
-                      <td>{p.nome}</td>
-                      <td>{p.email || "—"}</td>
-                      <td>{p.telefone || "—"}</td>
-                      <td>
-                        {new Date(p.confirmado_em + "Z").toLocaleString("pt-BR", {
-                          day: "2-digit",
-                          month: "2-digit",
-                          hour: "2-digit",
-                          minute: "2-digit",
-                        })}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-        )}
-
-        {faltantes.length > 0 && (
-          <section className="admin-card">
-            <h2 className="admin-card-title">Ainda não confirmaram ({faltantes.length})</h2>
-            <div className="admin-table-wrap">
-              <table className="admin-table">
-                <thead>
-                  <tr>
-                    <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Cidade</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {faltantes.map((p) => (
-                    <tr key={p.id}>
-                      <td>{p.nome}</td>
-                      <td>{p.email || "—"}</td>
-                      <td>{p.cidade || "—"}</td>
-                      <td>{p.status || "—"}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-        )}
-
-        {confirmados.length === 0 && faltantes.length === 0 && (
-          <p className="admin-empty">
-            Nenhum catecúmeno cadastrado ainda. Importe a lista em{" "}
-            <Link href="/admin/pessoas" className="admin-link">
-              Catecúmenos
-            </Link>
-            .
-          </p>
-        )}
+        <PresencasView
+          confirmados={confirmados.map((p) => ({ ...p }))}
+          faltantes={faltantes.map((p) => ({ ...p }))}
+        />
       </main>
     </div>
   );

@@ -3064,3 +3064,96 @@ button:focus-visible {
     flex-direction: column;
   }
 }
+
+/* ---------- Modal de confirmação ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(28, 8, 5, 0.66);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.modal-card {
+  width: min(430px, 100%);
+  padding: clamp(26px, 4vw, 34px);
+  border: 1px solid rgba(147, 20, 14, 0.35);
+  background: var(--plaster);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+}
+
+.modal-title {
+  margin: 0 0 12px;
+  color: var(--crimson);
+  font-family: "Cinzel", Georgia, serif;
+  font-size: 1.35rem;
+  font-weight: 600;
+}
+
+.modal-text {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 0.94rem;
+  line-height: 1.6;
+}
+
+.modal-text strong {
+  color: var(--ink);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* ---------- Onboarding / passos guiados ---------- */
+.admin-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.admin-step {
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+}
+
+.admin-step-num {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  background: var(--crimson);
+  color: var(--paper);
+  font-family: "Cinzel", Georgia, serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.admin-step h3 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.admin-step p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 720px) {
+  .admin-steps {
+    grid-template-columns: 1fr;
+  }
+}

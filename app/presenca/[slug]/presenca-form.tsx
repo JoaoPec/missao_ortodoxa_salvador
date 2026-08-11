@@ -4,6 +4,16 @@ import { useState } from "react";
 
 type Estado = "email" | "nome" | "feito";
 
+// Máscara de telefone brasileiro: (XX) XXXXX-XXXX ou (XX) XXXX-XXXX.
+function formatarTelefone(v: string): string {
+  const d = v.replace(/\D/g, "").slice(0, 11);
+  if (d.length === 0) return "";
+  if (d.length <= 2) return `(${d}`;
+  if (d.length <= 6) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
+  if (d.length <= 10) return `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}`;
+  return `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}`;
+}
+
 export default function PresencaForm({
   slug,
   titulo,
@@ -77,7 +87,6 @@ export default function PresencaForm({
           {nomeConfirmado ? `${nomeConfirmado}, sua presença` : "Sua presença"} em{" "}
           <strong>{titulo}</strong> foi registrada.
         </p>
-        <small>Nos vemos na catequese. ☦️</small>
       </div>
     );
   }
@@ -122,8 +131,9 @@ export default function PresencaForm({
               id="telefone"
               type="tel"
               autoComplete="tel"
+              inputMode="numeric"
               value={telefone}
-              onChange={(e) => setTelefone(e.target.value)}
+              onChange={(e) => setTelefone(formatarTelefone(e.target.value))}
               placeholder="(71) 99999-9999"
             />
           </div>
